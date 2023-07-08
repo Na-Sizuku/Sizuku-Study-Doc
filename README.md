@@ -4,7 +4,26 @@
 
 ## 目前计划
 
-- [] 将Archlinux安装教程进行编写和归档
-    - []
+- [ ] Archlinux
+    - [ ] Archlinux命令行安装
+    - [ ] Archlinux基础核心包安装
+    - [ ] Archlinux桌面软件包安装
+    - [ ] Archlinux扩展阅读
+
+- [ ] NextCloud
+    - [ ] NextCloud部署
+        - [ ] 手动部署
+        - [ ] 官方软件包部署
+    - [ ] 扩展阅读
+
+- [ ] GitLab
+    - [ ] GitLab部署
+        - [ ] 手动部署
+        - [ ] 官方软件包部署
+    - [ ] 扩展阅读
+
 ## 协议
 基于CC-BY-NC-SA-4.0许可协议发行
+
+## 最后更新日期
+2023-7-8 12:40
