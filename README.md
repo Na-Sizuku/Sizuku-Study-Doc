@@ -4,36 +4,62 @@
 
 ## 目前计划
 
-- [x] Archlinux
-    - [ ] Archlinux命令行安装
-    - [ ] Archlinux基础核心包安装
-    - [ ] Archlinux桌面软件包安装
-    - [ ] Archlinux扩展阅读
+### 操作系统和专业解决方案系统
 
-- [ ] NextCloud
-    - [ ] NextCloud部署
+#### ArchLinux
+
+    - [ ] ArchLinux
+        - [ ] ArchLinux命令行安装
+        - [ ] ArchLinux基础核心包安装
+        - [ ] ArchLinux桌面软件包安装
+        - [ ] ArchLinux扩展阅读
+
+#### NextCloud
+
+    - [ ] NextCloud
+        - [ ] NextCloud部署
         - [ ] 手动部署
         - [ ] 官方软件包部署
-    - [ ] 扩展阅读
+            - [ ] 扩展阅读
 
-- [ ] GitLab
-    - [ ] GitLab部署
-        - [ ] 手动部署
-        - [ ] 官方软件包部署
-    - [ ] 扩展阅读
+#### GitLab
 
-- [ ] Rsyslog
-    - [ ] Rsyslog实现逻辑
-    - [ ] Rsyslog安装
-        - [ ] 手动编译安装
-        - [ ] 官方软件包安装
-    - [ ] Rsyslog配置
-        - [ ] 本地日志保存
-        - [ ] 远端日志接受保存
-    - [ ] 扩展阅读
+    - [ ] GitLab
+        - [ ] GitLab部署
+            - [ ] 手动部署
+            - [ ] 官方软件包部署
+        - [ ] 扩展阅读
+
+### 独立软件
+
+#### Rsyslog
+
+    - [ ] Rsyslog
+        - [ ] Rsyslog实现逻辑
+        - [ ] Rsyslog安装
+            - [ ] 手动编译安装
+            - [ ] 官方软件包安装
+        - [ ] Rsyslog配置
+            - [ ] 本地日志保存
+            - [ ] 远端日志接受保存
+        - [ ] 扩展阅读
+
+#### Apache2
+
+    - [ ] Apache2
+        - [ ] Apache2安装
+            - [ ] 手动编译安装
+            - [ ] 官方软件包安装
+        - [ ] Apache2配置
+            - [ ] 多站点配置
+            - [ ] 模块启动和关闭
+            - [ ] HTTPS(SSL)配置
+        - [ ] 扩展阅读
 
 ## 协议
+
 基于CC-BY-NC-SA-4.0许可协议发行
 
 ## 最后更新日期
-2023-7-8 12:40
+
+2023-8-18 15:40
