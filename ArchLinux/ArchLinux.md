@@ -34,4 +34,4 @@ Arch Linux适用于乐于自己动手的用户，因为他们往往更愿意花�
 Arch Linux鼓励每一个用户参与和贡献，报告和帮助修复bugs，提供软件包补丁和参加核心项目：Arch开发者都是志愿者，通过持续的贡献成为团队中的一员。Archers 可以自行贡献软件包到Arch用户仓库，提升ArchWiki文档质量，在 论坛、邮件列表 或者IRC中给其它用户提供技术支持。  
 Arch Linux现在是全球许多GNU/Linux用户的选择，已经有许多国际社区提供帮助和文档的翻译。  
 
-## ArchLinux的[安装](https://sizuku.privatecloud.fun:14444/Na-Sizuku/sizuku-study-doc/-/blob/master/ArchLinux/ArchLiunx%20Install.md)
+## ArchLinux[安装](https://sizuku.privatecloud.fun:14444/Na-Sizuku/sizuku-study-doc/-/blob/master/ArchLinux/ArchLiunx%20Install.md)
