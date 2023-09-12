@@ -13,6 +13,9 @@
   - [ ] ArchLinux基础核心包安装
   - [ ] ArchLinux桌面软件包安装
   - [ ] ArchLinux扩展阅读
+    - [ ] ArchLinux常用软件
+    - [ ] ArchLinux办公软件
+    - [ ] ArchLinux开发软件
 
 #### NextCloud
 
