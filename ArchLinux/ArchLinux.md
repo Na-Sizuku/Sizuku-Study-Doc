@@ -1,9 +1,9 @@
-# ArchLinux
+# Arch Linux
 
 Arch Linux是一种通用操作系统，它是基于X86-64架构的一类GNU/Linux发行版。  
 Arch Linux采用滚动升级模式，尽全力为用户提供最新的稳定版软件。初始安装完成的 Arch Linux只是一个**基本系统**，随后用户可以根据自己的喜好安装需要的软件并配置成符合自己理想的个性化系统。  
 
-## ArchLinux的核心原则
+## Arch Linux的核心原则
 
 以下核心原则构成了我们通常所指的Arch之道，或者说Arch的哲学。或许最好的结词是Keep It Simple, Stupid（对应中文为“保持简单，且一目了然”）。  
 
@@ -34,4 +34,4 @@ Arch Linux适用于乐于自己动手的用户，因为他们往往更愿意花�
 Arch Linux鼓励每一个用户参与和贡献，报告和帮助修复bugs，提供软件包补丁和参加核心项目：Arch开发者都是志愿者，通过持续的贡献成为团队中的一员。Archers 可以自行贡献软件包到Arch用户仓库，提升ArchWiki文档质量，在 论坛、邮件列表 或者IRC中给其它用户提供技术支持。  
 Arch Linux现在是全球许多GNU/Linux用户的选择，已经有许多国际社区提供帮助和文档的翻译。  
 
-## ArchLinux[安装](https://sizuku.privatecloud.fun:14444/Na-Sizuku/sizuku-study-doc/-/blob/master/ArchLinux/ArchLiunx%20Install.md)
+## Arch Linux[安装](https://sizuku.privatecloud.fun:14444/Na-Sizuku/sizuku-study-doc/-/blob/master/ArchLinux/ArchLiunx%20Install.md)
