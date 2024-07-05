@@ -35,7 +35,7 @@ CertUtil -hashfile <文件名/文件路径> sha256
 ```
 
 对于 Linux 操作系统你可以直接使用 sha256sum 命令进行校验。  
-如果你已使用 Arch Linux 作为你的操作系统，为什么还要来看胎教安装指北，你应该去看官方 Wiki。
+如果你已使用 Arch Linux 作为你的操作系统，为什么还要来看安装指北，你应该去看官方 Wiki。
 
 ```bash
 sha256sum -c sha256sums.txt
@@ -87,4 +87,41 @@ station <设备名称> connect <网络名称>
 cat /sys/firmware/efi/fw_platform_size
 ```
 
-需要注意的是如果你的 BIOS 没有设置 EFI 引导，命令可能无法执行。
+需要注意的是如果你的 BIOS 没有设置 EFI 引导，命令可能无法执行。  
+对于磁盘分区，推荐使用 fdisk 进行操作，当然你也可以根据需要选择其他自己熟悉分区工具，本文将使用 fdisk 作为演示。  
+在安装镜像中执行 lsblk 用于查看计算机中磁盘详细信息，如安装了几块磁盘，有哪些磁盘已经分区，磁盘挂载点等等。  
+![lsblk](../Images/lsblk.png)  
+在演示中使用的磁盘为 sda，实际安装中还请参考 lsblk 命令执行结果，并`根据情况`修改命令的**参数**。  
+使用 fdisk 对 sda 磁盘进行修改，当键入命令后将会进入 fdisk CLI 界面。
+
+```bash
+fdisk /dev/<磁盘名称>
+```
+
+![fdisk](../Images/fdisk.png)  
+默认情况下 fdisk 会自动创建一个 DOS 分区表既 MBR 分区表，如果你的系统已经支持了 EFI 引导，那么请输入 g 并回车执行创建 GPT 分区表。  
+如果不知道怎么操作请根据提示键入 m 并回车执行，fdisk 将会告诉你可用的操作。  
+![make GPT partition](../Images/fdisk-g.png)  
+接下来你可以根据你的需要进行相应的分区工作，如果看不动英文你可以参考[此处](https://wiki.archlinuxcn.org/wiki/Fdisk#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA)，这里是 ArchLinux 中文社区 Wiki，讲述了如何操作 fdisk 进行磁盘分区。
+
+你可以根据下表来创建分区和规划大小，默认情况下/home 和/root 是直接在根分区(/)下面创建的，如果你需要将用户家目录(/home)进行独立分区，你可以根据需要酌情减少根分区大小。  
+如果你使用Arch Linux作为你的主力操作系统，推荐将用户家目录分区进行独立，这样当你需要重新安装操作系统的时候，用户数据将不会丢失。  
+
+| 系统挂载点 |              分区类型              |         推荐大小         |                                     用途                                     |
+| :--------: | :--------------------------------: | :----------------------: | :--------------------------------------------------------------------------: |
+|   /boot    | EFI 系统分区(EFI system partition) |        300Mb 起步        | 用于给 EFI 引导准备的特殊分区，如果使用 MBR+传统 BIOS 引导可以则不需要该分区 |
+|   [SWAP]   |     Linux 交换分区(Linux swap)     | 4G 起步，最好为 2 的倍数 |                      当系统内存不够用时作为虚拟内存使用                      |
+|     /      |  Linux 文件系统(Linux filesystem)  |      最少 20G 起步       |                作为系统的根分区，最好和/boot 分区在同一磁盘下                |
+|   /home    |  Linux 文件系统(Linux filesystem)  |   可以根据需要进行创建   |        作为用户家目录的挂载点，如果不单独分区则需要加大系统根分区大小        |
+|   /root    |  Linux 文件系统(Linux filesystem)  |   可以根据需要进行创建   | 作为 root 特权用户的家目录挂载点，如果不单独进行分区则需要加大系统根分区大小 |
+
+作为演示，下面是一个已经完成分区的磁盘，由于演示系统并没有安装桌面环境，故此没有创建如/home等专用分区，根分区也并没用根据推荐进行创建。  
+
+```bash
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0    16G  0 disk
+├─sda1   8:1    0   300M  0 part
+├─sda2   8:2    0     4G  0 part
+└─sda3   8:3    0  11.7G  0 part
+sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
+```
