@@ -128,3 +128,86 @@ sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
 ```
 
 完成磁盘分区后，记得要为你新分区的磁盘进行格式化。你可以将磁盘理解为地皮，分区是在地皮上面划分地基，而格式化就是在地基上面盖仓库，而写入文件就是往仓库里搬东西。  
+
+格式化磁盘可以使用mkfs命令，先前我们创建了3个分区，其中sda1要作为启动分区，sda2作为交换分区，sad3则作为我们的系统根分区。  
+这里我们需要用到命令均在下面列出
+
+```bash
+mkfs.fat -F 32
+mkswap
+swapon
+mkfs.ext4
+```
+
+mkfs.fat是用于给引导分区格式化使用的命令，-F 32是用于创建FAT32文件系统的参数，对于BIOS来说FAT文件系统是目前且唯一能读取的文件系统，如果格式化使用了其他文件系统进行格式化则有可能会导致操作系统无法引导或其他不可预料的问题  
+mkswap是将分区设定为交换分区，swapon则是启用交换分区  
+mkfs.ext4将分区格式化为Linux系统常用文件系统，ext文件系统目前有ext2 ext3和ext4，对于较新的Linux操作系统来说，使用ext4则会有相对较好的性能，如果想要使用其他文件系统如btfs、xfs等还需要其他配置，这里则使用ext4
+
+```text
+root@archiso ~ # mkfs.fat -F 32 /dev/sda1
+mkfs.fat 4.2 (2021-01-31)
+root@archiso ~ # mkswap /dev/sda2
+Setting up swapspace uersion 1, size = 4 GiB(4294963200 bytes)
+nolabel, UUID=a43c3479-7f45-49f7-9e10-Zaaf116c709b
+
+root@archiso ~ # swapon /dev/sda2
+
+root@archiso ~ # mkswap /dev/sda3
+Creating filesystem with 4116992 4k blocks and 1030176 inodes
+Filesystem UUID:583a2157-11ec-4460-952a-ff4c798a80cZ
+Superblock backups stored on blocks:
+    32768，98304，163840，229376，294912,819200，884736，1605632，2654208,
+    4096000
+Allocating group tables : done
+Writinginode tables : done
+Creating .journal (16384 blocks) :done
+Writing superblocks and filesystem accounting information: done
+
+root@archiso ~ #
+```
+
+通过上述操作，已经完成了磁盘格式化及交换分区启用，接下来需要进行挂载磁盘为安装系统做准备
+
+### 挂载分区
+
+挂载分区前首先我们需要知道我们需要挂载的分区的具体位置，可以通过lsblk命令进行查看
+
+```bash
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0    16G  0 disk
+├─sda1   8:1    0   300M  0 part
+├─sda2   8:2    0     4G  0 part [SWAP]
+└─sda3   8:3    0  11.7G  0 part
+sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
+```
+
+这里我们需要挂载sda1和sda3，其中sda1是我们的引导分区，需要挂载到"/boot"下面，sda3是我们的根分区需要挂载到"/"下面去，但由于我们在安装镜像提供的基础系统里，所以这里我们需要将sda1挂载到"/mnt/boot"而sda3挂载到"/mnt"下  
+这里我们使用"mount"命令进行挂载，挂载到不存在的位置时可以通过携带"--mkdir"参数来创建并挂载到指定目录
+
+![mount](../Images/mount.png)
+
+由于Arch Linux并不会在安装镜像中提供任何安装包，所以接下来我们需要配置安装系统的镜像源来加快我们的下载速度
+
+### 配置镜像源
+
+Arch Linux使用pacman作为包管理器，对应配置文件在"/etc/pacman.conf"和"/etc/pacman.d/"当中，修改镜像源需要编辑位于"/etc/pacman.d/mirrorlist"文件，默认会提供几个镜像源，为了保证速度我们这边会将其都禁用并单独写入一个新的镜像源
+
+![mirrors](../Images/mirrors.png)
+
+这里我们使用中国科学技术大学作为我们的镜像源，完成配置后我们还需要进行一次系统更新以获取最新数据和安装包数据库，执行下列命令即可自动更新
+
+```bash
+pacman -Syy
+```
+
+完成这些操作后就可以进行基础系统安装
+
+### 安装基础系统
+
+### 安装引导
+
+### 配置基础环境
+
+### 配置用户及sudo
+
+## 后续配置及桌面环境
