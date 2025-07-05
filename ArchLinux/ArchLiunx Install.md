@@ -31,14 +31,14 @@ Arch Linux 系统镜像你可以从官方网站获取，也可以通过镜像服
 对于 Windows 操作系统你可以使用下面的命令进行校验。
 
 ```powershell
-CertUtil -hashfile <文件名/文件路径> sha256
+    CertUtil -hashfile <文件名/文件路径> sha256
 ```
 
 对于 Linux 操作系统你可以直接使用 sha256sum 命令进行校验。  
 如果你已使用 Arch Linux 作为你的操作系统，为什么还要来看安装指北，你应该去看官方 Wiki。
 
 ```bash
-sha256sum -c sha256sums.txt
+    sha256sum -c sha256sums.txt
 ```
 
 当然你也可以跳过文件校验制作系统镜像 U 盘或光盘。
@@ -49,8 +49,8 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
 对于有线连接的设备镜像在启动后将会自动使用 DHCP 获取网络，如果你在特定的网络环境下，你可能需要配置固定 IP 来连接网络。
 
 ```bash
-ip addr add <IP地址>/<子网掩码前缀> brd <广播地址> dev <接口名字>
-ip addr add 192.168.1.201/24 brd 192.168.1.255 dev ens192
+    ip addr add <IP地址>/<子网掩码前缀> brd <广播地址> dev <接口名字>
+    ip addr add 192.168.1.201/24 brd 192.168.1.255 dev ens192
 ```
 
 上述命令是用于配置静态 IP 地址，需要注意静态 IP 地址不能和 DHCP 获取的 IP 地址一致，不然会提示地址已经使用。  
@@ -69,9 +69,9 @@ ip addr add 192.168.1.201/24 brd 192.168.1.255 dev ens192
 如果你使用 WiFi 作为网络接入，你将需要使用 iwd 包的 iwctl 进入 WiFi 连接 CLI 界面。
 
 ```bash
-station <设备名称> scan
-station <设备名称> get-networks
-station <设备名称> connect <网络名称>
+    station <设备名称> scan
+    station <设备名称> get-networks
+    station <设备名称> connect <网络名称>
 ```
 
 ![iwctl界面](../Images/iwctl.png)
@@ -84,7 +84,7 @@ station <设备名称> connect <网络名称>
 如果你不确定你的电脑是否支持 EFI 引导，你可以通过下列命令进行验证。
 
 ```bash
-cat /sys/firmware/efi/fw_platform_size
+    cat /sys/firmware/efi/fw_platform_size
 ```
 
 需要注意的是如果你的 BIOS 没有设置 EFI 引导，命令可能无法执行。  
@@ -119,12 +119,12 @@ fdisk /dev/<磁盘名称>
 作为演示，下面是一个已经完成分区的磁盘，由于演示系统作为服务器使用，故此没有创建如/home 等专用分区，根分区也并没用根据推荐进行创建。
 
 ```bash
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0    16G  0 disk
-├─sda1   8:1    0   300M  0 part
-├─sda2   8:2    0     4G  0 part
-└─sda3   8:3    0  11.7G  0 part
-sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
+    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+    sda      8:0    0    16G  0 disk
+    ├─sda1   8:1    0   300M  0 part
+    ├─sda2   8:2    0     4G  0 part
+    └─sda3   8:3    0  11.7G  0 part
+    sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
 ```
 
 完成磁盘分区后，记得要为你新分区的磁盘进行格式化。你可以将磁盘理解为地皮，分区是在地皮上面划分地基，而格式化就是在地基上面盖仓库，而写入文件就是往仓库里搬东西。  
@@ -191,6 +191,18 @@ sr0     11:0    1   1.1G  0 rom  /run/archiso/bootmnt
 ### 配置镜像源
 
 Arch Linux使用pacman作为包管理器，对应配置文件在"/etc/pacman.conf"和"/etc/pacman.d/"当中，修改镜像源需要编辑位于"/etc/pacman.d/mirrorlist"文件，默认会提供几个镜像源，为了保证速度我们这边会将其都禁用并单独写入一个新的镜像源
+
+您可以手动配置镜像源到上面的任意一个镜像服务器，也可以在文件中取消注释掉离你最近或者速度最快的服务器。  
+您可以使用下列任意一个命令对配置文件进行编辑，对于初次尝试使用Linux的用户来说建议使用nano作为你的文本编辑器，如果你有使用Linux的经验，你可以选择你常用的文本编辑器进行编辑。
+
+```bash
+    #你可以选择任意一个适合你的文本编辑器对配置文件进行编辑
+    #vim/vi文本编辑器为纯键盘操作编辑器，具有一定上手难度
+    vim /etc/pacman.d/mirrors
+    #nano文本编辑器
+    #nano拥有着相对现代化的操作逻辑和快捷键，时候新手使用
+    nano /etc/pacman.d/mirrors
+```
 
 ![mirrors](../Images/mirrors.png)
 
