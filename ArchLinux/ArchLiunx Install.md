@@ -12,12 +12,12 @@
 
 手动安装 Arch Linux 一直是官方鼓励使用的方式，这样你不仅可以知道在安装过程中出现的各种问题，同时也可以根据需要自定义需要安装的软件包。  
 在正式安装操作系统前，你需要知道 GPT 分区和 MBR 分区的特点，这不仅影响你后面引导操作系统的方式，同时也影响你系统的安全性。  
-在本文中不会过多赘述 GPT 分区和 MBR 分区的特点，以及如何影响操作系统，如果需要可以点[这里](https://sizuku.privatecloud.fun:14444/Na-Sizuku/sizuku-study-doc/-/blob/master/Extend/Disk%20Partition.md)
+在本文中不会过多赘述 GPT 分区和 MBR 分区的特点，以及如何影响操作系统，如果需要可以点[_这里_](../Extend/Disk%20Partition.md)
 
 ### 准备系统安装镜像
 
 Arch Linux 系统镜像你可以从官方网站获取，也可以通过镜像服务器获取，通常情况下推荐从镜像服务器获取，因为下载的速度更快。  
-你可以从这里获取完整的镜像服务器[列表](https://archlinux.org/download/)，并根据自身所处的位置进行选择。  
+你可以从这里获取完整的镜像服务器[_列表_](https://archlinux.org/download/)，并根据自身所处的位置进行选择。  
 如果你在国内，可以参考下面列表里展示的几个镜像服务器，并根据自身情况进行选择。
 
 |                    站点(国内各大企业)                    | 最大速率(MB/s) |                       站点(国内各大高校)                        | 最大速率(MB/s) |
@@ -81,7 +81,6 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
 ### 磁盘分区
 
 自 2012 年后的计算机主板基本都支持了 EFI 引导，在磁盘分区中将优先考虑使用 GPT 分区而不优先考虑使用 MBR 分区。  
-关于 GPT 分区和 MBR 分区的区别请参考此[文档](../Extend/Disk%20Partition.md)。  
 如果你不确定你的电脑是否支持 EFI 引导，你可以通过下列命令进行验证。
 
 ```bash
@@ -103,11 +102,11 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
 默认情况下 fdisk 会自动创建一个 DOS 分区表既 MBR 分区表，如果你的系统已经支持了 EFI 引导，那么请输入 g 并回车执行创建 GPT 分区表。  
 如果不知道怎么操作请根据提示键入 m 并回车执行，fdisk 将会告诉你可用的操作。  
 ![make GPT partition](../Images/fdisk-g.png)  
-接下来你可以根据你的需要进行相应的分区工作，如果看不动英文你可以参考[此处](https://wiki.archlinuxcn.org/wiki/Fdisk#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA)，这里是 ArchLinux 中文社区 Wiki，讲述了如何操作 fdisk 进行磁盘分区。
+接下来你可以根据你的需要进行相应的分区工作，如果看不动英文你可以参考[_此处_](https://wiki.archlinuxcn.org/wiki/Fdisk#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA)，这里是 ArchLinux 中文社区 Wiki，讲述了如何操作 fdisk 进行磁盘分区。
 
 你可以根据下表来创建分区和规划大小，默认情况下/home 和/root 是直接在根分区(/)下面创建的，如果你需要将用户家目录(/home)进行独立分区，你可以根据需要酌情减少根分区大小。  
 如果你使用 Arch Linux 作为你的主力操作系统，推荐将用户家目录分区进行独立，这样当你需要重新安装操作系统的时候，用户数据将不会丢失。  
-如果你不清楚 Linux 文件结构的特点，那么你可以参考该视频[100 秒解释 Linux 系统目录结构](https://www.bilibili.com/video/BV1y3411t7Tz/)，如果你在海外可以参考[Linux directories in 100 seconds](https://youtu.be/42iQKuQodW4)
+如果你不清楚 Linux 文件结构的特点，那么你可以参考该视频[_100 秒解释 Linux 系统目录结构_](https://www.bilibili.com/video/BV1y3411t7Tz/)，如果你在海外可以参考[_Linux directories in 100 seconds_](https://youtu.be/42iQKuQodW4)
 
 | 系统挂载点 |              分区类型              |         推荐大小         |                                        用途                                         |
 | :--------: | :--------------------------------: | :----------------------: | :---------------------------------------------------------------------------------: |
@@ -218,7 +217,7 @@ Arch Linux 使用 pacman 作为包管理器，对应配置文件在"/etc/pacman.
 
 ### 安装基础系统
 
-由于 Arch Linux 所追求的 KISS 理念，所以请务必仔细阅读接下来的几个章节，以*避免*安装后**无法引导系统**，无法**连接网络**，**无法使用使用其他功能**等情况。  
+由于 Arch Linux 所追求的 KISS 理念，所以请务必仔细阅读接下来的几个章节，以`避免`安装后**无法引导系统**，无法**连接网络**，**无法使用使用其他功能**等情况。  
 基于 Arch Linux 的 KISS 理念，操作系统安装将会是完全模块化按需求安装，您需要知道您的设备的具体硬件配置，才能保证安装过程中不出现如丢失依赖的情况，同时安装过程中请确保全程联网，所有你需要的软件包都将会自动通过网络下载。
 
 Arch Linux 使用"pacstrap"命令安装全新的操作系统，一个完整的安装命令由下面进行展示。
@@ -276,7 +275,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 |     Hardend     |     linux-hardend      |                                                                                        一个以安全为重点的 Linux 内核，应用了一组强化补丁来减轻内核和用户空间漏洞，比默认 linux 内核支持更多的上游内核强化功能                                                                                        |
 |    Longterm     |       linux-lts        |                                                                               长期支持（LTS）Linux 内核和模块，在使用一些非官方外模块时很有用，这些模块可能无法及时发布与最新稳定内核兼容的版本，但能满足一些特殊需求                                                                                |
 | Realtime kernel | linux-rt, linux-rt-lts | 由 Ingo Molnar 领导的一小群核心开发人员维护，这个补丁修改允许几乎所有的内核空间被抢占，除了一些非常小的代码区域（“raw_spinlock 关键区域”）。这是通过用支持优先级继承的互斥体替换大多数内核自旋锁，以及将所有中断和软件中断移动到内核线程来实现的$\color{#F00}{注意：该内核补丁已合并到Linux 6.12中}$ |
-|   Zen Kernel    |       linux-zen        |                              这是内核黑客为日常系统提供最佳 Linux 内核而共同努力的结果。有关更多详细信息，请参阅[常见问题解答](https://github.com/zen-kernel/zen-kernel/wiki/FAQ)和[详细功能列表](https://github.com/zen-kernel/zen-kernel/wiki/Detailed-Feature-List)                               |
+|   Zen Kernel    |       linux-zen        |                            这是内核黑客为日常系统提供最佳 Linux 内核而共同努力的结果。有关更多详细信息，请参阅[_常见问题解答_](https://github.com/zen-kernel/zen-kernel/wiki/FAQ)和[_详细功能列表_](https://github.com/zen-kernel/zen-kernel/wiki/Detailed-Feature-List)                             |
 
 #### 驱动
 
@@ -341,7 +340,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 #### 网络管理工具
 
 基础的 base 包已经自带了基础有线连接功能，但配置起来过于复杂且不支持静态 IP 配置，你需要安装一个高级的网络管理工具来简化你的操作，对于需要使用桌面环境的设备来说 Network Manager 是一个不错的选择，如果你的桌面环境选择平铺式如 i3、hyprland 那么你可能更喜欢基于命令行和配置文件进行管理的方式，那么 dhcpcd 则会更适合你。  
-如果你是在虚拟机中使用，那么你只需要按照 dhcpcd 即可。  
+如果你是在虚拟机中使用，那么你只需要安装 dhcpcd 即可。  
 对于无线网络来说你需要安装 wpa_supplicant，如果你需要通过拨号上网你需要安装 ppp，如果使用的是 dhcpcd 你需要安装 dialog 和 netctl 来提供 wifi 自动连接和连接管理菜单。
 
 |                                 软件/工具                                 | 以太网支持  |    PPPoE 支持     |              移动宽带支持              |          无线网络身份认证           | 静态 IP 网络 |          DHCP 客户端          |                                 域名解析方式                                  | 无线认证支持 |  CLI 工具  | TUI 工具  |                GUI 工具                |
@@ -437,12 +436,152 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 ![grub-mkconfig](../Images/grub-mkconfig.png)
 
-到此就已经完成了引导系统安装，接下来我们还需要配置新系统的其他东西，如时间同步、主机名等等。
+到此就已经完成了引导系统安装，接下来我们还需要配置新系统的其他东西，如本地时间、主机名等等。
 
 ### 配置基础环境
 
-### 配置用户及 sudo
+对于新安装的操作系统，如时间、主机名、本地化等等一些列配置都是没有的，需要手动一点点配置初始化，在本章节将会一点点教你配置具体内容。  
+注意这些配置需要区分是在**新系统**还是**ISO 镜像系统**，具体需要操作的环境会在各个小章节中的最前面写明。  
+您随时都可以通过"arch-chroot"和"exit"命令于**新系统**和**ISO 镜像系统**中来回切换。
 
-无论如何使用 root 作为日常使用用户是极其不推荐也是极其危险的操作，你应该创建一个普通用户作为你的日常使用用户，当你需要进行特权操作时在使用 sudo 提权可以最大限度下避免因为一些操作的失误而导致你的系统损坏。
+```bash
+    arch-chroot /mnt
+    exit
+```
+
+区分你在新系统和 ISO 镜像系统的方法仅需要注意查看你的命令行界面是否带有颜色即可，root 为**红色**的时候为 ISO 镜像系统，root 为**白色**的时候为新系统。
+
+#### 文件系统表配置（启动挂载配置）
+
+**_该配置需要在 ISO 镜像系统中操作_**
+
+在 Linux 中 fstab(file system table) 记录了引导系统完成引导后交给操作系统时需要自动挂载的目录和位置，缺少对应的配置或配置不正确将会导致操作系统无法正常启动从而进入紧急模式。  
+通常情况下你可以直接通过命令生成该文件，虽然你也可以手动写入但这是极其不推荐的做法，如果操作失误进入紧急模式将会使得你头皮发麻！
+
+```bash
+    genfstab -U /mnt >> /mnt/etc/fstab
+```
+
+使用下面的命令即可自动生成 fstab 文件，生成后你可以通过"cat"命令进行查看。  
+![fstab](../Images/fstab.png)
+
+#### 时区配置
+
+**_该配置需要在新系统中操作_**
+
+配置时区可以通过多种方法进行实现，一种是"ln"命令进行链接特定时区到本地目录，另一种则是通过"timedatectl set-timezone"命令进行配置。
+
+```bash
+    ln -sf /usr/share/zoneinfo/Region/City /etc/localtime   #示例
+    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #将时区设为中国上海 UTC+8
+```
+
+上述命令通过"ln"链接特定时区到本地时间设置，如果你需要设定到别的时区，请修改 Region 到对应大洲，修改 City 到对应城市即可完成本地时区配置请合理利用 TAB 补全。
+
+```bash
+    timedatectl set-timezone Region/City    #示例
+    timedatectl set-timezone Asia/Shanghai  #将时区设为中国上海 UTC+8
+```
+
+上述命令通过"timedatectl set-timezone"直接设定时区，如果你需要设定到别的时区，请修改 Region 到对应大洲，修改 City 到对应城市即可完成本地时区配置请合理利用 TAB 补全。
+
+完成配置后应该如下图展示  
+![timezong](../Images/timedatectl.png)
+
+#### 主机名配置
+
+**_该配置需要在新系统中操作_**
+
+主机名对于任何一台设备来说都是必要的，您应该设置一个容易让自己一眼便能认出的名称，您只需要创建并编辑"/etc/hostname"文件的内容即可完成主机名设定。
+
+```bash
+    vim /etc/hostname
+```
+
+您可以将 vim 替换为其他你使用的文本编辑软件。  
+注意：有关主机名选择请参阅[_RFC 1178_](https://tools.ietf.org/html/rfc1178)，同时主机名必须在 1 到 63 个字符，仅使用小写 a 到 z、0 到 9 和-，并且不能以-开头。
+
+#### 本地化设置
+
+**_该配置需要在新系统中操作_**
+
+本地化设置包括语言设置和区域设置，对于语言设置需要在"/etc/locale.conf"中写入对应的语言设置，而区域设置是修改"/etc/locale.gen"文件。
+
+一个设定好的语言设置如下图展示  
+![locale.conf](../Images/locale.conf.png)  
+通常情况下不推荐在这里设置语言为中文，因为当出现错误的时候你将不能够获得最准确的报错信息和日志记录，而使用英文展示则能容易判断和处理问题。  
+你可以修改用户的语言配置来使用中文，这样在日常使用中则是以中文展示，而查阅日志时则为英文。
+
+对于区域设置需要则是将你所需要用到区域取消注释，通常情况下打开"/etc/locale.gen"文件会展示所有支持的区域设定。  
+![locale.gen.notconfig](../Images/locale.gen.notconfig.png)  
+这里需要善用文本编辑器的搜索功能去搜索你需要的区域设定并取消注释，通常情况下你需要"en_US.UTF-8 UTF-8"和"zh_CN.UTF-8 UTF-8"，这样在你使用如 Office 等其他办公软件时将会保证如货币，单位计算等等都是符合需要的。
+
+注意：如果你在"locale.conf"中写入的是"en_GB.UTF-8"这里你同样也需要取消掉"en_GB.UTF-8 UTF-8"的注释不然你将会遇到如`Cannot set LC_CTYPE to default locale: No such file or directory`的报错  
+![locale.gen.search](../Images/locale.gen.search.png)  
+完成配置后执行下列命令即可自动将区域设置设定完成
+
+```bash
+    locale-gen
+```
+
+![locale.gen](../Images/locale.gen.png)
+
+#### 配置用户及 sudo
+
+**_该配置需要在新系统中操作_**
+
+无论如何使用 root 作为日常使用用户是极其不推荐也是极其危险的操作，你应该创建一个普通用户作为你的日常使用用户，当你需要进行特权操作时在使用 sudo 提权，这样可以可以在一定限度下避免因为直接使用 root 操作的失误而导致的系统损坏，同时多用户也可以更好的管理的你的操作系统。  
+在创建用户前首先需要为你的 root 用户创建密码，使用"passwd"命令便可以直接创建密码，请一定要牢记的你的密码，如果你忘记了密码那么会变得很麻烦。
+
+```bash
+    passwd <User Name>
+```
+
+在默认情况下如果不带上"User Name"参数，将会修改当前用户的密码，如果你不知道你的当前用户是哪一个你可以通过"whoami"。  
+接下来就是为 root 用户创建密码。  
+![passwd-root](../Images/passwd-root.png)
+
+创建新用户则可以通过"useradd"命令进行创建，在不携带任何参数的情况下创建用户是不会创建任何用户目录，通常创建一个正常使用的用户需要带上"-m"参数在"/home"目录下同步创建和用户名相同的用户名文件夹。
+
+```bash
+    useradd -m <User Name>  #示例
+    useradd -m Na-Sizuku    #创建一个名为Na-Sizuku的用户
+```
+
+创建一个日常使用的用户后记得一定要通过"passwd"命令修改新用户的密码，不然你将无法正常登录该用户，在 Linux 中用户为空密码则无法正常手段登录，所以一定要记得修改新创建用户的密码。
+
+当然完成新用户创建并不代表新用户具有特权，你任需要配置 sudo，这样当你需要进行提权操作或升级系统时才有权限。  
+默认情况下你新创建的用户是无法使用 sudo 的，你需要编辑配置文件并写入相关规则以允许你的新用户拥有使用 sudo 的权利。  
+通常情况下使用"visudo"命令即可编辑配置文件，当然你也可以直接编辑位于"/etc/sudoers"文件，但直接编辑文件是极其不推荐的操作，如果你写入了错误的东西那么你将无法正常使用 sudo。
+
+```bash
+    visudo
+    #你应使用 visudo 去编辑 sudo 配置文件
+    #在配置文件中应写入下列这一条
+    <User Name> ALL=(ALL:ALL) ALL
+```
+
+一个配置好的 sudoers 文件中应该类似于下图这样，当然你也可以添加其他免密码验证提权命令等，具体可以[_参阅这里_](https://wiki.archlinux.org/title/Sudo#Example_entries)  
+![sudo](../Images/sudo.png)
+
+#### 自启动服务配置
+
+**_该配置需要在新系统中操作_**
+
+对于许多新安装的软件来说可能已经带有一些服务，但由于 Arch Linux 的 KISS 理念这些新安装的软件都不会自动启动，你需要手动配置自启动的服务。  
+通常情况下你需要启动这几个类型的服务：网络服务、杀毒软件服务、远程连接服务等。  
+在本文中仅涉及到网络服务所以你需要更具你具体安装的软件包启动对应服务，如果你在虚拟机环境中你还需要启动虚拟机支持服务，具体需要启动服务名称我会在下表中列出。  
+
+```bash
+    systemctl enable <service name>
+```
 
 ## 后续配置及桌面环境
+
+到这里你就已经完成了基础 Arch Linux 系统安装，接下来是退出新系统回到 ISO 镜像系统中输入"reboot"来重新启动，同时别忘了移除你的安装介质。  
+但毕竟是基础操作系统，没有桌面环境、办公软件、开发软件、浏览器等等，你可能还需要继续进行其他配置来搭建一个属于你自己的 Arch Linux 操作系统。  
+关于**桌面环境**请参阅这篇[_文章_](../ArchLinux/ArchLinux%20Install_Desktop.md)  
+关于**常用软件**请参阅这篇[_文章_](../ArchLinux/ArchLinux%20Extend_Common%20Software.md)  
+关于**办公软件**请参阅这篇[_文章_](../ArchLinux/ArchLinux%20Extend_Office%20Software.md)  
+关于**开发软件**请参阅这篇[_文章_](../ArchLinux/ArchLinux%20Extend_Development%20Software.md)  
+关于**日常使用及优化**请参阅这篇[_文章_](../ArchLinux/ArchLinux%20Extend_Optimize.md)
