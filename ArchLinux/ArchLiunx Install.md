@@ -54,6 +54,7 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
 ```
 
 上述命令是用于配置静态 IP 地址，需要注意静态 IP 地址不能和 DHCP 获取的 IP 地址一致，不然会提示地址已经使用。  
+如果你不知道你的接口名字可以通过"ip addr"命令去查询，通常情况下你的接口名字应该为"ens"打头。  
 这里没用使用 net-tools 包里的 ifconfig 命令，这是由于 net-tools 包存在的一些问题，目前官方镜像不提供使用 net-tools 提供的命令如 ifconfig 等，转而使用的是 iproute2 提供的命令，对应的命令改变将在下表体现。
 
 | 弃用的命令 |                                      替换命令                                       |
@@ -570,11 +571,25 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 对于许多新安装的软件来说可能已经带有一些服务，但由于 Arch Linux 的 KISS 理念这些新安装的软件都不会自动启动，你需要手动配置自启动的服务。  
 通常情况下你需要启动这几个类型的服务：网络服务、杀毒软件服务、远程连接服务等。  
-在本文中仅涉及到网络服务所以你需要更具你具体安装的软件包启动对应服务，如果你在虚拟机环境中你还需要启动虚拟机支持服务，具体需要启动服务名称我会在下表中列出。  
+在本文中仅涉及到网络服务所以你需要更具你具体安装的软件包启动对应服务，如果你在虚拟机环境中你还需要启动虚拟机支持服务，具体需要启动服务名称我会在下表中列出。
 
 ```bash
-    systemctl enable <service name>
+    systemctl enable <service name> #示例命令
+    systemctl enable vmtoolsd       #启用虚拟机状态监测服务
 ```
+
+|     来源包     |        服务名         |                 用途                 |
+| :------------: | :-------------------: | :----------------------------------: |
+| open-vm-tools  |       vmtoolsd        |       负责汇报虚拟机状态的服务       |
+| open-vm-tools  |  vmware-vmblock-fuse  |             文件系统工具             |
+|     dhcpcd     |        dhcpcd         |      通过 DHCP 自动获取 IP 地址      |
+| NetworkManager |    networkmanager     | 提供检测和配置功能以便自动连接到网络 |
+|    openssh     |         sshd          |         SSH 远程连接守护进程         |
+|     clamav     |     clamav-daemon     |       CalmAV 杀毒软件守护进程        |
+|     clamav     |   clamav-clamonacc    |     CalmAV 杀毒软件实时守护进程      |
+|     clamav     | clamav-freshclam-once |    CalmAV 病毒库每天自动更新程序     |
+
+注意：网络管理工具一般只启动一个，如果启动多个网络管理工具则会导致网卡出现占用，无法配置情况。
 
 ## 后续配置及桌面环境
 
