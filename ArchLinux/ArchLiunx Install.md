@@ -75,7 +75,7 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
     station <设备名称> connect <网络名称>
 ```
 
-![iwctl界面](../Images/iwctl.png)
+![iwctl界面](../Images/ArchLinux-Install/iwctl.png)
 
 在完成网络配置后一定要记得 ping 一下，比如 baidu.com
 
@@ -91,7 +91,7 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
 需要注意的是如果你的 BIOS 没有设置 EFI 引导，命令可能无法执行。  
 对于磁盘分区，推荐使用 fdisk 进行操作，当然你也可以根据需要选择其他自己熟悉分区工具，本文将使用 fdisk 作为演示。  
 在安装镜像中执行 lsblk 用于查看计算机中磁盘详细信息，如安装了几块磁盘，有哪些磁盘已经分区，磁盘挂载点等等。  
-![lsblk](../Images/lsblk.png)  
+![lsblk](../Images/ArchLinux-Install/lsblk.png)  
 在演示中使用的磁盘为 sda，实际安装中还请参考 lsblk 命令执行结果，并`根据情况`修改命令的**参数**。  
 使用 fdisk 对 sda 磁盘进行修改，当键入命令后将会进入 fdisk CLI 界面。
 
@@ -99,10 +99,10 @@ Arch Linux 官方提供的镜像不包含任何软件包，这也意味着安装
     fdisk /dev/<磁盘名称>
 ```
 
-![fdisk](../Images/fdisk.png)  
+![fdisk](../Images/ArchLinux-Install/fdisk.png)  
 默认情况下 fdisk 会自动创建一个 DOS 分区表既 MBR 分区表，如果你的系统已经支持了 EFI 引导，那么请输入 g 并回车执行创建 GPT 分区表。  
 如果不知道怎么操作请根据提示键入 m 并回车执行，fdisk 将会告诉你可用的操作。  
-![make GPT partition](../Images/fdisk-g.png)  
+![make GPT partition](../Images/ArchLinux-Install/fdisk-g.png)  
 接下来你可以根据你的需要进行相应的分区工作，如果看不动英文你可以参考[_此处_](https://wiki.archlinuxcn.org/wiki/Fdisk#%E5%88%9B%E5%BB%BA%E5%88%86%E5%8C%BA%E8%A1%A8%E5%92%8C%E5%88%86%E5%8C%BA)，这里是 ArchLinux 中文社区 Wiki，讲述了如何操作 fdisk 进行磁盘分区。
 
 你可以根据下表来创建分区和规划大小，默认情况下/home 和/root 是直接在根分区(/)下面创建的，如果你需要将用户家目录(/home)进行独立分区，你可以根据需要酌情减少根分区大小。  
@@ -186,7 +186,7 @@ mkfs.ext4 将分区格式化为 Linux 系统常用文件系统，ext 文件系�
 这里我们使用"mount"命令进行挂载，挂载到不存在的位置时可以通过携带"--mkdir"参数来创建并挂载到指定目录。  
 注意要先挂载你的根分区，然后在挂载你的引导分区。
 
-![mount](../Images/mount.png)
+![mount](../Images/ArchLinux-Install/mount.png)
 
 由于 Arch Linux 并不会在安装镜像中提供任何安装包，所以接下来我们需要配置安装系统的镜像源来加快我们的下载速度。
 
@@ -206,7 +206,7 @@ Arch Linux 使用 pacman 作为包管理器，对应配置文件在"/etc/pacman.
     nano /etc/pacman.d/mirrors
 ```
 
-![mirrors](../Images/mirrors.png)
+![mirrors](../Images/ArchLinux-Install/mirrors.png)
 
 这里我们使用中国科学技术大学作为我们的镜像源，完成配置后我们还需要进行一次系统更新以获取最新数据和安装包数据库，执行下列命令即可自动更新。
 
@@ -232,7 +232,7 @@ Arch Linux 使用"pacstrap"命令安装全新的操作系统，一个完整的�
 
 下面有一些可以参考的软件包，从内核到文本编辑再到网络连接等都会囊括，但如桌面等其他现代化办公和使用需要的软件包在此并没有提供，可以参考最后一章进行安装。  
 当你完成你需要的软件包挑选后，根据上述命令重新构建即可开始进行系统安装，完成安装后将如下图展示。  
-![完成安装](../Images/pacstrap.png)
+![完成安装](../Images/ArchLinux-Install/pacstrap.png)
 
 #### 安装时必要的软件包类型
 
@@ -375,7 +375,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
     arch-chroot /mnt
 ```
 
-![chroot](../Images/arch-chroot.png)
+![chroot](../Images/ArchLinux-Install/arch-chroot.png)
 
 接下来我们需要确定操作是否支持 UEFI 引导方式，虽然前文有提到但再确认一遍以避免出现问题。
 
@@ -385,7 +385,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 如果你的操作系统是使用 UEFI 引导，那么在这里会给你反馈，如果没有任何反馈则证明你的操作系统使用传统 BIOS 方式引导。
 
-![UEFI-Mode](../Images/EFI-Mode.png)
+![UEFI-Mode](../Images/ArchLinux-Install/EFI-Mode.png)
 
 接下来请根据你的引导方式参考不同的子章节来安装系统引导。
 
@@ -393,7 +393,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 首先你需要安装"efibootmgr"和"grub"如果你在前面部署操作系统中安装了 grub，在这里只需要安装 efibootmgr。
 
-![efibootmgr install](../Images/efibootmgr.png)
+![efibootmgr install](../Images/ArchLinux-Install/efibootmgr.png)
 
 接下来你需要安装 grub 到 UEFI 引导菜单中。
 
@@ -410,7 +410,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 如果安装没有任何问题，将会如下图展示，如果你不确定安装成功没，你可以执行命令查看文件夹是否有对应内容生成。
 
-![grub-install](../Images/grub-install.png)
+![grub-install](../Images/ArchLinux-Install/grub-install.png)
 
 接下来将需要生成 grub 配置文件，如果后续需要你也可以修改 grub 配置文件以实现各种酷炫效果。
 
@@ -418,7 +418,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
     grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-![grub-mkconfig](../Images/grub-mkconfig.png)
+![grub-mkconfig](../Images/ArchLinux-Install/grub-mkconfig.png)
 
 #### 基于传统 BIOS 引导方式的引导系统安装
 
@@ -435,7 +435,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
     grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-![grub-mkconfig](../Images/grub-mkconfig.png)
+![grub-mkconfig](../Images/ArchLinux-Install/grub-mkconfig.png)
 
 到此就已经完成了引导系统安装，接下来我们还需要配置新系统的其他东西，如本地时间、主机名等等。
 
@@ -464,7 +464,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 ```
 
 使用下面的命令即可自动生成 fstab 文件，生成后你可以通过"cat"命令进行查看。  
-![fstab](../Images/fstab.png)
+![fstab](../Images/ArchLinux-Install/fstab.png)
 
 #### 时区配置
 
@@ -487,7 +487,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 上述命令通过"timedatectl set-timezone"直接设定时区，如果你需要设定到别的时区，请修改 Region 到对应大洲，修改 City 到对应城市即可完成本地时区配置请合理利用 TAB 补全。
 
 完成配置后应该如下图展示  
-![timezong](../Images/timedatectl.png)
+![timezong](../Images/ArchLinux-Install/timedatectl.png)
 
 #### 主机名配置
 
@@ -509,23 +509,23 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 本地化设置包括语言设置和区域设置，对于语言设置需要在"/etc/locale.conf"中写入对应的语言设置，而区域设置是修改"/etc/locale.gen"文件。
 
 一个设定好的语言设置如下图展示  
-![locale.conf](../Images/locale.conf.png)  
+![locale.conf](../Images/ArchLinux-Install/locale.conf.png)  
 通常情况下不推荐在这里设置语言为中文，因为当出现错误的时候你将不能够获得最准确的报错信息和日志记录，而使用英文展示则能容易判断和处理问题。  
 你可以修改用户的语言配置来使用中文，这样在日常使用中则是以中文展示，而查阅日志时则为英文。
 
 对于区域设置需要则是将你所需要用到区域取消注释，通常情况下打开"/etc/locale.gen"文件会展示所有支持的区域设定。  
-![locale.gen.notconfig](../Images/locale.gen.notconfig.png)  
+![locale.gen.notconfig](../Images/ArchLinux-Install/locale.gen.notconfig.png)  
 这里需要善用文本编辑器的搜索功能去搜索你需要的区域设定并取消注释，通常情况下你需要"en_US.UTF-8 UTF-8"和"zh_CN.UTF-8 UTF-8"，这样在你使用如 Office 等其他办公软件时将会保证如货币，单位计算等等都是符合需要的。
 
 注意：如果你在"locale.conf"中写入的是"en_GB.UTF-8"这里你同样也需要取消掉"en_GB.UTF-8 UTF-8"的注释不然你将会遇到如`Cannot set LC_CTYPE to default locale: No such file or directory`的报错  
-![locale.gen.search](../Images/locale.gen.search.png)  
+![locale.gen.search](../Images/ArchLinux-Install/locale.gen.search.png)  
 完成配置后执行下列命令即可自动将区域设置设定完成
 
 ```bash
     locale-gen
 ```
 
-![locale.gen](../Images/locale.gen.png)
+![locale.gen](../Images/ArchLinux-Install/locale.gen.png)
 
 #### 配置用户及 sudo
 
@@ -540,7 +540,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 
 在默认情况下如果不带上"User Name"参数，将会修改当前用户的密码，如果你不知道你的当前用户是哪一个你可以通过"whoami"。  
 接下来就是为 root 用户创建密码。  
-![passwd-root](../Images/passwd-root.png)
+![passwd-root](../Images/ArchLinux-Install/passwd-root.png)
 
 创建新用户则可以通过"useradd"命令进行创建，在不携带任何参数的情况下创建用户是不会创建任何用户目录，通常创建一个正常使用的用户需要带上"-m"参数在"/home"目录下同步创建和用户名相同的用户名文件夹。
 
@@ -563,7 +563,7 @@ CPU 微代码库一般是提供 CPU 的安全支持和一些 BUG 修复，如果
 ```
 
 一个配置好的 sudoers 文件中应该类似于下图这样，当然你也可以添加其他免密码验证提权命令等，具体可以[_参阅这里_](https://wiki.archlinux.org/title/Sudo#Example_entries)  
-![sudo](../Images/sudo.png)
+![sudo](../Images/ArchLinux-Install/sudo.png)
 
 #### 自启动服务配置
 
