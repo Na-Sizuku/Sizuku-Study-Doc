@@ -37,12 +37,16 @@ Wayland 作为新兴的中间层支持采用基于协议的结构，优化了 Xo
 
 本文将不会专注于其中一个中间层来讲解，而是将会同时讲解 2 种不同中间层配置和桌面环境搭建，你可以根据你的需求选择任意中间层来配置你的桌面环境，如果你考虑兼容性、稳定性那么 Xorg 是一个不错的选择，如果你喜欢更现代化、更强大、效率更好的中间层你可以选择 Wayland，又或者两个都安装在登录界面选择你想要的使用的中间层。
 
+考虑到 Wayland 作为行业趋势逐步替代老久的 Xorg，在绝大部分情况下安装如 GNOME、Xfce 这一类的桌面环境时都会同时安装 Xorg 和 Wayland。对于平铺式的桌面环境则需要根据你选择的中间层安装和配置。
+
 |    桌面环境名    | Xorg 支持 | Wayland 支持 | Wayland 支持所需软件包 |
 | :--------------: | :-------: | :----------: | :--------------------: |
 |  GNOME(窗口式)   |    是     |   是(默认)   |     xorg-xwayland      |
-|   Xfce(窗口式)   |    是     |  实验性支持  |     xfwm4-wayland      |
-|    i3(平铺式)    |    是     |  通过 Sway   |          sway          |
-| Hyprland(平铺式) |    否     |      是      |           -            |
+|   Xfce(窗口式)   |    是     |  实验性支持  |  xorg-xwayland、labwc  |
+|    i3(平铺式)    |    是     |  通过 Sway   |  sway、xorg-xwayland   |
+| Hyprland(平铺式) |    否     |      是      |     xorg-xwayland      |
+
+注意：安装 xwayland 是出于兼容性考虑，除非你真的知道你使用的所有均能正常使用 Wayland 否则请一定要 xwayland 作为对老应用的支持。
 
 当然只有桌面环境也仅仅是你拥有了桌面，启动桌面环境任然需要相应的窗口管理器，在本文只会使用"sddm"如果你有其他你喜欢的窗口管理器也可以自行替换使用，如果你使用"GNOME"作为你的桌面环境你仅需要启用"Gnmoe"自带的"gdm"即可，当然你也可以不使用窗口管理器，直接使用命令行启动，具体配置将会在下面几个章节中进行讲解。
 
@@ -55,7 +59,7 @@ Wayland 作为新兴的中间层支持采用基于协议的结构，优化了 Xo
 GNOME 是一个简单易用的桌面环境，由 GNOME 项目团队设计。它是完全由免费开源的软件组成，默认使用 Wayland 而不是使用 Xorg。  
 从 GNOME 40 开始，由于 Wayland 的技术成熟 GNOME 将其作为默认中间层。虽然 Xorg 任然受到支持，但将会在 GNOME 50 中移除对 Xorg 的支持，具体信息你可以查看此[_文章_](https://gitlab.gnome.org/GNOME/gnome-session/-/merge_requests/98)。
 
-使用 Xorg 作为中间层的 GNOME 在安装的时候需要安装"xorg"和"gnome"包，如果不想配置太多其他软件或者懒得去找其他软件来搭建你的桌面环境，你可以再安装一个"gnome-extra"包。  
+由于 GNOME 项目团队在逐步将 GNOME 桌面环境迁移至 Wayland，默认情况下安装"gnome"包将会自动安装 Wayland 和 Xorg 中间层，如果不想配置太多其他软件或者懒得去找其他软件来搭建你的桌面环境，你可以再安装一个"gnome-extra"包。  
 输入下列的命令即可安装 GNOME，安装过程中 pacman 会询问你需要安装那些软件包，如果你是新手你可以默认全部安装，当然你可以选择你需要的软件包安装。
 
 ```bash
@@ -89,9 +93,44 @@ GNOME 是一个简单易用的桌面环境，由 GNOME 项目团队设计。它�
 
 ### Xfce
 
-#### Xfce 在 Xorg
+Xfce 是基于 GTK 的轻量级模块化桌面环境，在默认情况下带有一套基础且完整的桌面环境，能够满足最基础的需求。  
+考虑到 Xfce 团队对于 Wayland 的支持，这里不是很推荐使用 Wayland 作为你的中间层，Xfce 团队将 Wayland 支持作为实验性支持的主要原因是有些模型在 Wayland 上的工作状态不是很正常或不是很稳定，但本文中任会继续说明。
 
-#### Xfce 在 Wayland
+安装 Xfce 仅需要安装"xfce4"包组，但这里推荐同时也安装"xfce4-goodies"包组，该包组提供了大量实用工具能让你配置 Xfce 桌面环境更为轻松方便。  
+你只需要根据下列的命令安装 Xfce 即可。
+
+```bash
+    #如果仅使用Xorg
+    pacman -Syu xfce4 xorg sddm #如果你是root用户
+    sudo pacman -Syu xfce4 xorg sddm    #如果你是普通用户
+    #如果要使用Wayland
+    pacman -Syu xfce4 labwc sddm    #如果你是root用户
+    sudo pacman -Syu xfce4 labwc sddm   #如果你是普通用户
+```
+
+接下来仅需要等待 pacman 自动下载所需软件包安装即可。  
+完成安装后你需要将"sddm"设置为开机自启动，接下来只需要重新启动设备便会自动进入 SDDM 的登录界面。
+
+```bash
+    systemctl enable sddm   #如果你是root用户
+    sudo systemctl enable ssdm  #如果你是普通用户
+```
+
+![SDDM-Xfce](../Images/ArchLinux-Desktop/SDDM-Xfce.png)
+
+选择你的用户并输入密码后即可进入 Xfce 桌面。  
+注意：如果使用 Wayland 作为中间层，请一定要记得在右上角修改为"Xfce Session (Wayland)"。  
+注意：如果使用 Xorg 作为中间层请一定要记得在右上角修改为"Xfce Session"。
+
+使用 Xorg 作为中间层
+![Xfce-Desktop](../Images/ArchLinux-Desktop/Xfce-Desktop.png)
+
+使用 Wayland 作为中间层
+![Xfce-Desktop-Wayland](../Images/ArchLinux-Desktop/Xfce-Desktop-Wayland.png)
+
+需要注意的是由于 Xfce 对 Wayland 的支持不是特别好，所以你可以看见在 Xorg 上的 Xfce 能正常显示桌面背景但在 Wayland 上面无法正常显示桌面背景。
+
+接下来你就可以在桌面环境中修改设置、添加主题来使得你的桌面环境更符合你的需求，调教出你喜欢的桌面。
 
 ## 平铺式桌面环境
 
