@@ -46,25 +46,25 @@ Wayland 作为新兴的中间层支持采用基于协议的结构，优化了 Xo
 
 当然只有桌面环境也仅仅是你拥有了桌面，启动桌面环境任然需要相应的窗口管理器，在本文只会使用"sddm"如果你有其他你喜欢的窗口管理器也可以自行替换使用，如果你使用"GNOME"作为你的桌面环境你仅需要启用"Gnmoe"自带的"gdm"即可，当然你也可以不使用窗口管理器，直接使用命令行启动，具体配置将会在下面几个章节中进行讲解。
 
-**由于本文仅介绍桌面环境安装，桌面环境配置完成后的其他设置还请自行你的桌面环境和软件，对于日常使用的软件你可以参考[_最后一章_](../ArchLinux/ArchLinux%20Install_Desktop.md#其他文章参阅)。**  
+**由于本文仅介绍桌面环境安装，桌面环境配置完成后的其他设置还请自行你的桌面环境和软件，对于日常使用的软件你可以参考[_最后一章_](../ArchLinux/ArchLinux%20Install_Desktop.md#其他文章参阅)。**
 
 ## 窗口式桌面环境
 
 ### GNOME
 
-GNOME是一个简单易用的桌面环境，由GNOME项目团队设计。它是完全由免费开源的软件组成，默认使用Wayland而不是使用Xorg。  
-从GNOME 40开始，由于Wayland的技术成熟GNOME将其作为默认中间层。虽然Xorg任然受到支持，但将会在GNOME 50中移除对Xorg的支持，具体信息你可以查看此[_文章_](https://gitlab.gnome.org/GNOME/gnome-session/-/merge_requests/98)。  
+GNOME 是一个简单易用的桌面环境，由 GNOME 项目团队设计。它是完全由免费开源的软件组成，默认使用 Wayland 而不是使用 Xorg。  
+从 GNOME 40 开始，由于 Wayland 的技术成熟 GNOME 将其作为默认中间层。虽然 Xorg 任然受到支持，但将会在 GNOME 50 中移除对 Xorg 的支持，具体信息你可以查看此[_文章_](https://gitlab.gnome.org/GNOME/gnome-session/-/merge_requests/98)。
 
-使用Xorg作为中间层的GNOME在安装的时候需要安装"xorg"和"gnome"包，如果不想配置太多其他软件或者懒得去找其他软件来搭建你的桌面环境，你可以再安装一个"gnome-extra"包。  
-输入下列的命令即可安装GNOME，安装过程中pacman会询问你需要安装那些软件包，如果你是新手你可以默认全部安装，当然你可以选择你需要的软件包安装。  
+使用 Xorg 作为中间层的 GNOME 在安装的时候需要安装"xorg"和"gnome"包，如果不想配置太多其他软件或者懒得去找其他软件来搭建你的桌面环境，你可以再安装一个"gnome-extra"包。  
+输入下列的命令即可安装 GNOME，安装过程中 pacman 会询问你需要安装那些软件包，如果你是新手你可以默认全部安装，当然你可以选择你需要的软件包安装。
 
 ```bash
     pacman -Syu gnome  #如果你是root用户
     sudo pacman -Syu gnome #如果你是普通用户
 ```
 
-接下来仅需要等待pacman自动下载所需软件包安装即可。  
-完成安装后你需要一个窗口管理器来管理桌面环境和用户登录，GNOME自带一个窗口管理器"GDM"，只需要为其配置开机自启动就大功告成。  
+接下来仅需要等待 pacman 自动下载所需软件包安装即可。  
+完成安装后你需要一个窗口管理器来管理桌面环境和用户登录，GNOME 自带一个窗口管理器"GDM"，只需要为其配置开机自启动就大功告成。
 
 ```bash
     systemctl enable gdm    #如果你是root用户
@@ -72,42 +72,42 @@ GNOME是一个简单易用的桌面环境，由GNOME项目团队设计。它是�
 ```
 
 完成配置后仅需要重新启动设备，便可以自动进入桌面环境的登录界面。  
-![GNOME-Login](../Images/ArchLinux-Desktop/GNOME-Login.png)  
+![GNOME-Login](../Images/ArchLinux-Desktop/GNOME-Login.png)
 
 选择你需要的用户登录用户，输入密码即可登录进入你的桌面环境。  
 ![GNOME-Desktop](../Images/ArchLinux-Desktop/GNOME-Desktop.png)
 
-如果你想切换GNOME使用的渲染中间层，你只需要在选择好用户后点击左下角的小齿轮修改你想用的中间层即可。  
-![GNOME-Switch](../Images/ArchLinux-Desktop/GNOME-Switch.png)  
+如果你想切换 GNOME 使用的渲染中间层，你只需要在选择好用户后点击左下角的小齿轮修改你想用的中间层即可。  
+![GNOME-Switch](../Images/ArchLinux-Desktop/GNOME-Switch.png)
 
-- GNOME选项是使用Wayland渲染中间层
-- GNOME Classic选项则是复刻传统GNOME2的样子和使用体验
-- GNOME Classic on Xorg选项则是使用Xorg渲染中间层复刻传统GNOME2的样子和使用体验
-- GNOME on Xorg选项是使用Xorg渲染中间层
+- GNOME 选项是使用 Wayland 渲染中间层
+- GNOME Classic 选项则是复刻传统 GNOME2 的样子和使用体验
+- GNOME Classic on Xorg 选项则是使用 Xorg 渲染中间层复刻传统 GNOME2 的样子和使用体验
+- GNOME on Xorg 选项是使用 Xorg 渲染中间层
 
-接下来你就可以在桌面环境中修改设置、添加主题来使得你的桌面环境更符合你的需求，调教出你喜欢的桌面。  
+接下来你就可以在桌面环境中修改设置、添加主题来使得你的桌面环境更符合你的需求，调教出你喜欢的桌面。
 
 ### Xfce
 
-#### Xfce在Xorg
+#### Xfce 在 Xorg
 
-#### Xfce在Wayland
+#### Xfce 在 Wayland
 
 ## 平铺式桌面环境
 
 ### i3
 
-#### i3在Xorg
+#### i3 在 Xorg
 
-#### i3在Wayland
+#### i3 在 Wayland
 
 ### Hyprland
 
-由于Hyprland本身不支持Xorg，所以Hyprland将仅使用Wayland作为中间层。  
+由于 Hyprland 本身不支持 Xorg，所以 Hyprland 将仅使用 Wayland 作为中间层。
 
 ## 关于手动启动桌面环境
 
-一般情况下是极其不推荐通过命令行启动你的桌面环境，除非你是真的闲的慌！  
+一般情况下是极其不推荐通过命令行启动你的桌面环境，除非你是真的闲的慌！
 
 ## 其他文章参阅
 
