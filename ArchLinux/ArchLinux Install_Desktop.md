@@ -43,7 +43,7 @@ Wayland 作为新兴的中间层支持采用基于协议的结构，优化了 Xo
 | :--------------: | :-------: | :----------: | :--------------------: |
 |  GNOME(窗口式)   |    是     |   是(默认)   |     xorg-xwayland      |
 |   Xfce(窗口式)   |    是     |  实验性支持  |  xorg-xwayland、labwc  |
-|    i3(平铺式)    |    是     |  通过 Sway   |  sway、xorg-xwayland   |
+|    i3(平铺式)    |    是     |      否      |           -            |
 | Hyprland(平铺式) |    否     |      是      |     xorg-xwayland      |
 
 注意：安装 xwayland 是出于兼容性考虑，除非你真的知道你使用的所有均能正常使用 Wayland 否则请一定要 xwayland 作为对老应用的支持。
@@ -136,9 +136,9 @@ Xfce 是基于 GTK 的轻量级模块化桌面环境，在默认情况下带有�
 
 ### i3
 
-#### i3 在 Xorg
-
-#### i3 在 Wayland
+由于 i3 本身不支持 Wayland，所以 i3 将仅使用 Wayland 作为中间层。  
+关于 i3 不支持 Wayland 你可以查看[_本文_](https://github.com/i3/i3/discussions/5845)。  
+作者已经明确表示 i3 不会从 Xorg 切换到 Wayland，但同样的只要 i3 有用户作者就会一直维护该项目，同时考虑到部分远程桌面和虚拟桌面任在使用 Xorg，所以 i3 将会保留兼容性，同时平铺式桌面在 Wayland 上已经有平替，作者将会继续保持 i3 仅支持 Xorg。
 
 ### Hyprland
 
