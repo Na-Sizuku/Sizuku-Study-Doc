@@ -314,9 +314,20 @@ Hyprland 是在 Wayland 下的一款平铺式桌面，由于 Hyprland 受到 i3 
 
 接下来你就可以根据你的使用习惯配置 Hyprland 桌面，默认情况下的 Hyprland 桌面配置文件在"~/.config/hypr/hyprland.conf"，你也可以查看网络上其他人配置 Hyprland 桌面环境来配置你喜欢的桌面。
 
+## 关于平铺式桌面环境配置
+
+由于平铺式桌面都具有高度可定制化，所以你可能需要查阅大量的资料，这里我会将本文中提到的平铺式桌面环境的官方 wiki、Arch Linux wiki 都将列出来，你可以更具情况自行查阅。  
+[i3 官方网站](https://i3wm.org/)  
+[i3 用户手册](https://i3wm.org/docs/userguide.html)  
+[Hyprland 官方网站](https://hyprland.org/)  
+[Hyprland 配置说明](https://wiki.hypr.land/Configuring/Start/)  
+[Arch Linux wiki 官方 i3 说明](https://wiki.archlinux.org/title/I3)  
+[Arch Linux wiki 官方 Hyprland 说明](https://wiki.archlinux.org/title/Hyprland)  
+需要注意由于中文翻译都是具有时间上的差异，如果可以请一定要查阅英文的资料，这将有助于你即使获得最新信息。
+
 ## 关于手动启动桌面环境
 
-一般情况下是极其不推荐通过命令行启动你的桌面环境，除非你是真的闲的慌！
+**一般情况下是极其不推荐通过命令行启动你的桌面环境，除非你是真的闲的慌！**
 
 ## 其他文章参阅
 
