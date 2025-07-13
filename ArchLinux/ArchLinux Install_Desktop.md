@@ -151,6 +151,103 @@ Xfce 是基于 GTK 的轻量级模块化桌面环境，在默认情况下带有�
 i3 是在 Xorg 下的一款平铺式桌面，由于 i3 作者秉承简单、简洁的理念，初始安装的 i3 桌面环境会非常的朴素传统，甚至于连终端环境、快速启动等等功能都没有，为此安装 i3 的时候你需要一并安装其他工具、软件来构建一个拥有完整桌面体验的环境。  
 本文中会进行详细说明同时也会在安装过程中告诉你具体需要那些东西来构成，同时也会对部分初始化配置进行说明，避免对平铺式桌面的初次使用的摸不到头脑或不知道该如从下手。
 
+安装 i3 桌面环境你只需要输入下列命令便可开始安装，同时为了能够提供基础用户登录你可能需要安装"sddm"作为你的用户登录管理器。
+
+```bash
+    pacman -Syu i3 xorg sddm    #如果你是root用户
+    sudo pacman -Syu i3 xorg sddm   #如果你是普通用户
+```
+
+当然仅安装桌面环境是不够的，你任需要安装其他软件如提供快速命令启动的"dmenu"，终端环境"terminator"，文件管理器"thunar"。  
+当然你也可以将终端环境、文件管理器替换为你习惯的，具体有那些可以替换的将会在下表列出。  
+需要注意的是"dmenu"是默认用于快速启动的软件，如果你需要使用别的请务必在完成基础配置后进行修改，以避免出现无法快速键入命令启动软件的情况。
+
+这是完整且满足基础需求的安装命令，当中的"thunar"和"terminator"你可以替换下表中你喜欢的。
+
+```bash
+    pacman -Syu i3 xorg dmenu thunar terminator sddm    #如果你是root用户
+    sudo pacman -Syu i3 xorg dmenu thunar terminator sddm   #如果你是普通用户
+```
+
+#### 可选终端环境平替
+
+|     软件名     |    软件包名    |           特点            |
+| :------------: | :------------: | :-----------------------: |
+| mate-terminal  | mate-terminal  |  MATE 桌面环境的默认终端  |
+| gnome-terminal | gnome-terminal | GNOME 桌面环境的默认终端  |
+|   terminator   |   terminator   |       支持分屏布局        |
+| xfce4-terminal | xfce4-terminal | Xfce 桌面环境的轻量级终端 |
+|     urxvt      |  rxvt-unicode  |    轻量级支持 Unicode     |
+|     xterm      |     xterm      |  最基础的 X Window 终端   |
+|   lxterminal   |   lxterminal   |    LXDE 桌面环境的终端    |
+|  terminology   |  terminology   |  Enlightenment 高级终端   |
+|   qterminal    |   qterminal    |    Qt 开发的轻量级终端    |
+|     tilix      |     tilix      |       支持分片布局        |
+|    terminix    |    terminix    |      类似 Terminator      |
+|    konsole     |    konsole     |    KDE 桌面环境的终端     |
+|     kitty      |     kitty      |       GPU 加速终端        |
+|     guake      |     guake      |        下拉式终端         |
+|     tilda      |     tilda      |      可配置下拉终端       |
+|   alacritty    |   alacritty    |    跨平台 GPU 加速终端    |
+
+#### 可选文件管理器平替
+
+|  软件名  | 软件包名 |                         特点                          |
+| :------: | :------: | :---------------------------------------------------: |
+|  Thunar  |  thunar  | Xfce 桌面环境的默认文件管理器，轻量快速，支持插件扩展 |
+| Dolphin  | dolphin  |   KDE 桌面环境的文件管理器，功能丰富，支持分栏视图    |
+| Nautilus | nautilus |  GNOME 桌面环境的默认文件管理器，界面简洁，集成度高   |
+| PCManFM  | pcmanfm  |      LXDE 桌面环境的轻量级文件管理器，资源占用低      |
+|   Vifm   |   vifm   |       终端文件管理器，Vim 式操作，支持颜色标记        |
+|  Ranger  |  ranger  | 终端下的文件管理器，支持 Vim 式快捷键操作，可预览文件 |
+
+完成安装后你需要将"sddm"设置为开机自启动，接下来只需要重新启动设备便会自动进入 SDDM 的登录界面。
+
+```bash
+    systemctl enable sddm   #如果你是root用户
+    sudo systemctl enable ssdm  #如果你是普通用户
+```
+
+![SDDM-i3](../Images/ArchLinux-Desktop/SDDM-i3.png)  
+接下来选择你的用户并输入密码便可登录进入 i3 桌面，记得左上角选 i3 除非你的桌面遇到了 BUG 在这种情况下你需要使用"with debug log"选项。
+
+![i3-Desktop](../Images/ArchLinux-Desktop/i3-Desktop.png)  
+初次进入 i3 桌面 i3 会询问你是否要生产基础配置文件，按下回车便可开始配置。
+
+![i3-Desktop-Config](../Images/ArchLinux-Desktop/i3-Desktop-Config.png)  
+在该选项会询问你配置哪一个按键作为`超级按键`，对于 Windows 布局的键盘来说选择'Win'即可，如果你使用 Mac 布局的键盘建议选择'Alt'作为你的`超级按键`。
+
+![i3-Desktop-Done](../Images/ArchLinux-Desktop/i3-Desktop-Done.png)
+接下来你就进入了 i3 桌面环境，对于新手来说平铺式桌面强调的是全键盘操作，所以很多情况下你会不知道如从下手。  
+下表将会提供一些基础的快捷键，能够让你快速上手 i3 平铺式桌面。
+
+|     快捷键      |           功能描述           |
+| :-------------: | :--------------------------: |
+|   $mod+Enter    |          打开新终端          |
+|     $mod+d      |        打开应用启动器        |
+|  $mod+Shift+q   |         关闭当前窗口         |
+|     $mod+h      |         水平分割窗口         |
+|     $mod+v      |         垂直分割窗口         |
+|     $mod+j      |         向左移动焦点         |
+|     $mod+k      |         向下移动焦点         |
+|     $mod+l      |         向上移动焦点         |
+|     $mod+;      |         向右移动焦点         |
+|  $mod+Shift+j   |         向左移动窗口         |
+|  $mod+Shift+k   |         向下移动窗口         |
+|  $mod+Shift+l   |         向上移动窗口         |
+|  $mod+Shift+;   |         向右移动窗口         |
+|     $mod+f      |         切换全屏模式         |
+|  $mod+Shift+c   |       重新加载配置文件       |
+|  $mod+Shift+r   |           重启 i3            |
+|  $mod+Shift+e   |           退出 i3            |
+|    $mod+1-9     |          切换工作区          |
+| $mod+Shift+1-9  |     移动窗口到指定工作区     |
+|    $mod+空格    |    切换平铺/堆叠/标签布局    |
+|     $mod+r      | 进入调整模式(可调整窗口大小) |
+|     $mod+a      |          聚焦父容器          |
+| $mod+Shift+空格 |      切换浮动/平铺状态       |
+|    $mod+Tab     |      切换最近使用的窗口      |
+
 ### Hyprland
 
 由于 Hyprland 本身不支持 Xorg，所以 Hyprland 将仅使用 Wayland 作为中间层。
