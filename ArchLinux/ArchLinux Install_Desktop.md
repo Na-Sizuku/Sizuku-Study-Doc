@@ -221,38 +221,98 @@ i3 是在 Xorg 下的一款平铺式桌面，由于 i3 作者秉承简单、简�
 接下来你就进入了 i3 桌面环境，对于新手来说平铺式桌面强调的是全键盘操作，所以很多情况下你会不知道如从下手。  
 下表将会提供一些基础的快捷键，能够让你快速上手 i3 平铺式桌面。
 
-|     快捷键      |           功能描述           |
-| :-------------: | :--------------------------: |
-|   $mod+Enter    |          打开新终端          |
-|     $mod+d      |        打开应用启动器        |
-|  $mod+Shift+q   |         关闭当前窗口         |
-|     $mod+h      |         水平分割窗口         |
-|     $mod+v      |         垂直分割窗口         |
-|     $mod+j      |         向左移动焦点         |
-|     $mod+k      |         向下移动焦点         |
-|     $mod+l      |         向上移动焦点         |
-|     $mod+;      |         向右移动焦点         |
-|  $mod+Shift+j   |         向左移动窗口         |
-|  $mod+Shift+k   |         向下移动窗口         |
-|  $mod+Shift+l   |         向上移动窗口         |
-|  $mod+Shift+;   |         向右移动窗口         |
-|     $mod+f      |         切换全屏模式         |
-|  $mod+Shift+c   |       重新加载配置文件       |
-|  $mod+Shift+r   |           重启 i3            |
-|  $mod+Shift+e   |           退出 i3            |
-|    $mod+1-9     |          切换工作区          |
-| $mod+Shift+1-9  |     移动窗口到指定工作区     |
-|    $mod+空格    |    切换平铺/堆叠/标签布局    |
-|     $mod+r      | 进入调整模式(可调整窗口大小) |
-|     $mod+a      |          聚焦父容器          |
-| $mod+Shift+空格 |      切换浮动/平铺状态       |
-|    $mod+Tab     |      切换最近使用的窗口      |
+|      快捷键       |           功能描述           |
+| :---------------: | :--------------------------: |
+|   `$mod+Enter`    |          打开新终端          |
+|     `$mod+d`      |        打开应用启动器        |
+|  `$mod+Shift+q`   |         关闭当前窗口         |
+|     `$mod+h`      |         水平分割窗口         |
+|     `$mod+v`      |         垂直分割窗口         |
+|     `$mod+j`      |         向左移动焦点         |
+|     `$mod+k`      |         向下移动焦点         |
+|     `$mod+l`      |         向上移动焦点         |
+|     `$mod+;`      |         向右移动焦点         |
+|  `$mod+Shift+j`   |         向左移动窗口         |
+|  `$mod+Shift+k`   |         向下移动窗口         |
+|  `$mod+Shift+l`   |         向上移动窗口         |
+|  `$mod+Shift+;`   |         向右移动窗口         |
+|     `$mod+f`      |         切换全屏模式         |
+|  `$mod+Shift+c`   |       重新加载配置文件       |
+|  `$mod+Shift+r`   |           重启 i3            |
+|  `$mod+Shift+e`   |           退出 i3            |
+|    `$mod+1-9`     |          切换工作区          |
+| `$mod+Shift+1-9`  |     移动窗口到指定工作区     |
+|    `$mod+空格`    |    切换平铺/堆叠/标签布局    |
+|     `$mod+r`      | 进入调整模式(可调整窗口大小) |
+|     `$mod+a`      |          聚焦父容器          |
+| `$mod+Shift+空格` |      切换浮动/平铺状态       |
+|    `$mod+Tab`     |      切换最近使用的窗口      |
 
-接下来你就可以根据你的使用习惯配置i3桌面，默认情况下的i3桌面配置文件在"~/.config/i3/config"，你也可以查看网络上其他人配置i3桌面环境来配置你喜欢的桌面。
+接下来你就可以根据你的使用习惯配置 i3 桌面，默认情况下的 i3 桌面配置文件在"~/.config/i3/config"，你也可以查看网络上其他人配置 i3 桌面环境来配置你喜欢的桌面。
 
 ### Hyprland
 
 由于 Hyprland 本身不支持 Xorg，所以 Hyprland 将仅使用 Wayland 作为中间层。
+
+Hyprland 是在 Wayland 下的一款平铺式桌面，由于 Hyprland 受到 i3 的影响，和 i3 一样秉承简单、简洁的理念，不同于 i3 的是 Hyprland 是拥有一套完整的生态，提供了基础的很多用户需要的东西，但同 i3 一样默认情况下不会提供连终端环境、快速启动等等，为此安装 Hyprland 的时候你需要一并安装其他工具、软件来构建一个拥有完整桌面体验的环境。  
+本文中会进行详细说明同时也会在安装过程中告诉你具体需要那些东西来构成，同时也会对部分初始化配置进行说明，避免对平铺式桌面的初次使用的摸不到头脑或不知道该如从下手。
+
+安装 Hyprland 桌面环境你只需要输入下列命令便可开始安装，同时为了能够提供基础用户登录你可能需要安装"sddm"作为你的用户登录管理器。
+
+```bash
+    pacman -Syu hyprland wayland sddm   #如果你是root用户
+    sudo pacman -Syu hyprland wayland sddm  #如果你是普通用户
+```
+
+当然仅安装桌面环境是不够的，你任需要安装其他软件如提供快速命令启动的"wofi"，终端环境"kitty"，文件管理器"dolphin"。  
+当然你也可以将终端环境、文件管理器替换为你习惯的，但上述提到的均为默认 Hyprland 配置文件中携带的默认使用的软件，如果你需要替换的话需要修改配置文件。  
+需要注意的是"wofi"是默认用于快速启动的软件，如果你需要使用别的请务必在完成基础配置后进行修改，以避免出现无法快速键入命令启动软件的情况，同时考虑到"kitty"的问题，这里推荐将终端环境替换为"terminator"。
+
+这是完整且满足基础需求的安装命令，后续你可以修改配置文件并替换为你需要的。
+
+```bash
+    pacman -Syu hyprland wayland sddm terminator dolphin wofi   #如果你是root用户
+    sudo pacman -Syu hyprland wayland sddm terminator dolphin wofi  #如果你是普通用户
+```
+
+由于"kitty"在 Hyprland 上的一些问题，默认配置文件是需要进行修改，结合上述我们所安装的终端环境，你需要先进入一次 Hyprland 桌面修改配置。  
+这里直接在终端中输入 hyprland 便会自动进入桌面，接着按下"Win+M"退出 Hyprland 桌面。  
+修改位于用户文件夹下的".config/hypr/hyprland.conf"，修改 37 行的`$terminal = kitty`将其改为`$terminal = terminator`。  
+![Hyprland-Config-terminal](../Images/ArchLinux-Desktop/Hyprland-Config-terminal.png)
+
+接下来你需要将"sddm"设置为开机自启动，接下来只需要重新启动设备便会自动进入 SDDM 的登录界面。
+
+```bash
+    systemctl enable sddm   #如果你是root用户
+    sudo systemctl enable ssdm  #如果你是普通用户
+```
+
+![SDDM-Hyprland](../Images/ArchLinux-Desktop/SDDM-Hyprland.png)  
+接下来选择你的用户并输入密码便可登录进入 Hyprland 桌面，记得左上角选 Hyprland。
+
+![Hyprland](../Images/ArchLinux-Desktop/Hyprland.png)  
+进入 Hyprland 桌面，你会发现空无一物，这是正常情况，毕竟平铺式桌面强调的是全键盘操作，所以你需要熟知几个快捷键，这将会在下表中列出。  
+默认情况下 Hyprland 使用`Win键`作为`超级按键`，你也可以根据需要在配制文件中修改。
+
+|          快捷键           |                功能描述                 |
+| :-----------------------: | :-------------------------------------: |
+|        `Super + Q`        |              打开默认终端               |
+|        `Super + C`        |            关闭当前活动窗口             |
+|        `Super + M`        |              退出 Hyprland              |
+|        `Super + E`        |             打开文件管理器              |
+|        `Super + V`        |         切换窗口的浮动/平铺状态         |
+|        `Super + R`        |       打开应用菜单（或运行命令）        |
+| `Super + 左/右/上/下箭头` |       移动焦点到左/右/上/下方窗口       |
+|       `Super + 1-9`       |      切换到指定编号的工作区（1-9）      |
+|        `Super + 0`        |          切换到第 10 个工作区           |
+|   `Super + Shift + 1-9`   | 将当前窗口移动到指定编号的工作区（1-9） |
+|    `Super + Shift + 0`    |     将当前窗口移动到第 10 个工作区      |
+|        `Super + S`        |     切换特殊工作区（如 scratchpad）     |
+|    `Super + Shift + S`    |       将当前窗口移动到特殊工作区        |
+|  `Super + 鼠标滚轮向下`   |           切换到下一个工作区            |
+|  `Super + 鼠标滚轮向上`   |           切换到上一个工作区            |
+
+接下来你就可以根据你的使用习惯配置 Hyprland 桌面，默认情况下的 Hyprland 桌面配置文件在"~/.config/hypr/hyprland.conf"，你也可以查看网络上其他人配置 Hyprland 桌面环境来配置你喜欢的桌面。
 
 ## 关于手动启动桌面环境
 
