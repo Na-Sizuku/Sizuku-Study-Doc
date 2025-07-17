@@ -11,10 +11,10 @@
 #### Arch Linux
 
 - [ ] Arch Linux
-  - [√] Arch Linux 安装
-    - [√] Arch Linux 命令行安装
-    - [√] Arch Linux 基础核心包安装
-    - [√] Arch Linux 桌面软件包安装
+  - [x] Arch Linux 安装
+    - [x] Arch Linux 命令行安装
+    - [x] Arch Linux 基础核心包安装
+    - [x] Arch Linux 桌面软件包安装
   - [ ] Arch Linux 扩展阅读
     - [ ] Arch Linux 常用软件
     - [ ] Arch Linux 办公软件
