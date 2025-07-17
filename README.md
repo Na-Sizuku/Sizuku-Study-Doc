@@ -4,21 +4,22 @@
 
 ## 目前计划
 
-补充并完成 Arch Linux 安装说明指北
+补充并完成 Arch Linux 扩展阅读
 
 ### 操作系统和专业解决方案系统
 
 #### Arch Linux
 
 - [ ] Arch Linux
-  - [ ] Arch Linux 安装
-    - [ ] Arch Linux 命令行安装
-    - [ ] Arch Linux 基础核心包安装
-    - [ ] Arch Linux 桌面软件包安装
+  - [√] Arch Linux 安装
+    - [√] Arch Linux 命令行安装
+    - [√] Arch Linux 基础核心包安装
+    - [√] Arch Linux 桌面软件包安装
   - [ ] Arch Linux 扩展阅读
     - [ ] Arch Linux 常用软件
     - [ ] Arch Linux 办公软件
     - [ ] Arch Linux 开发软件
+    - [ ] Arch Linux 优化小技巧和使用体验优化
 
 #### NextCloud
 
@@ -81,4 +82,4 @@
 
 ## 最后更新日期
 
-2024-7-09 10:36
+2025-7-15 15:36
