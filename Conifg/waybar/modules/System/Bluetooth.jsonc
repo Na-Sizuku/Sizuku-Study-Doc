@@ -1,0 +1,6 @@
+{
+    "bluetooth": {
+        "format": "<span color='#00BFFF'></span>{status}",
+        "format-disable": "<span color='#FF0000'></span>"
+    }
+}

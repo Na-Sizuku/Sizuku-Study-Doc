@@ -1,0 +1,27 @@
+{
+    "disk#root": {
+        "interval": 30,
+        "path": "/",
+        "unit": "GB",
+        "format": "/:{specific_free:0.1f}G",
+        "tooltip": true,
+        "tooltip-format": "Used: {specific_used:0.2f}G/Total: {specific_total:0.2f}G on {path}"
+    }
+    // You can change path and #<name> to monitor you want and dont forget change main config
+//    "disk#home": {
+//    "interval": 30,
+//    "path": "/home",
+//    "unit": "GB",
+//        "format": "/:{specific_free:0.1f}G",
+//        "tooltip": true,
+//        "tooltip-format": "Used: {specific_used:0.2f}G/Total: {specific_total:0.2f}G on {path}"
+//    },
+//    "disk#mnt": {
+//        "interval": 30,
+//        "path": "/mnt",
+//        "unit": "GB",
+//        "format": "/:{specific_free:0.1f}G",
+//        "tooltip": true,
+//        "tooltip-format": "Used: {specific_used:0.2f}G/Total: {specific_total:0.2f}G on {path}"
+//    }
+}

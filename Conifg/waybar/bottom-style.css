@@ -1,0 +1,176 @@
+/*===============================*
+ * This is Waybar Style Config   *
+ * Made By Na-Sizuku             *
+ *===============================*/
+
+/* Import Color Setings */
+@import "./color.css";
+
+/* Reset and Set all default CSS styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-width: 0;
+    min-height: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Set Font and Font Size */
+* {
+    font-family: FontAwesome, Source Code Pro;
+    font-size: 15px;
+}
+
+/* Waybar Set */
+#waybar {
+    border-radius: 10px 10px 0px 0px;
+    background-color: @waybar-bg;
+    color: #ffffff;
+    transition-property: waybar-bg;
+    transition-duration: .7s;
+}
+
+#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* Waybar Module Set */
+/* Waybar Battrey Module Set */
+#battery {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    background-color: @waybar-battery-bg;
+    color: @waybar-battery-text;
+}
+
+#battery.warning {
+    color: @waybar-battery-text-warning;
+}
+
+#battery.critical {
+    color: @waybar-battery-text-critical;
+}
+
+#battery.full {
+    color: @waybar-battery-text-full;
+}
+
+#battery.charging {
+    color: @waybar-battery-text-charging;
+}
+
+#battery.plugged {
+    color: @waybar-battery-text-plugged;
+}
+
+/* Waybar Bluetooth Module Set */
+#bluetooth {
+    border: 0px;
+    border-style: none;
+    border-radius: 0px;
+    background-color: @waybay-bluetooth-bg;
+    color: @waybay-bluetooth-text;
+}
+
+/* Waybar Clock Module Set */
+#clock {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-clock-edge;
+    background-color: @waybar-clock-bg;
+    color: @waybar-clock-text;
+}
+/* Waybar CPU Module Set */
+#cpu#usage {
+    border: 1px;
+    border-style: inset;
+}
+/* Waybar Disk Module Set */
+
+/* Waybar Memory Module Set */
+
+/* Waybar Network Module Set */
+
+/* Waybar Keyboard Module Set */
+
+/* Waybar Tray Module Set */
+
+/* Hyprland Set */
+/* Hyprland Submap Set */
+#submap {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @hyprland-submap-edge;
+    background-color: @hyprland-submap-bg;
+    color: @hyprland-submap-text;
+}
+
+/* Hyprland Window Set*/
+#window {
+    border: 1px;
+    border-style: inset;
+    border-radius: 5px;
+    border-color: @hyprland-window-edge;
+    background-color: @hyprland-window-bg;
+    color: @hyprland-window-text;
+}
+
+/* Hyprland Workspace Set */
+#workspaces {
+    border-radius: 5px;
+    background-color: @hyprland-window-bg;
+}
+
+#workspaces button {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @hyprland-ws-edge;
+    color: @hyprland-ws-text;
+}
+
+#workspaces button.active {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @hyprland-ws-edge-active;
+    background-color: @hyprland-ws-bg-active;
+    color: @hyprland-ws-text-active;
+}
+
+#workspaces button.urgent {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @hyprland-ws-edge-urgent;
+    background-color: @hyprland-ws-bg-urgent;
+    color: @hyprland-ws-text-urgent;
+}
+
+/* Custom Module Set */
+/* Custom Icon Set */
+#custom-icon {
+    font-size: 23px;
+    background-image: url("/home/mlc/.config/waybar/icon/icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* Custom Blank Set */
+#custom-blank {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+/* Custom Spacing */
+#custom-spacing {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}

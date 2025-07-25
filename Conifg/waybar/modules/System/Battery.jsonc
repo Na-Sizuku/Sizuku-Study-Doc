@@ -1,0 +1,40 @@
+{
+    "battery#bat1":{
+        "interval": 60,
+        // For 'bat'&'adapter' you can use "ls /sys/claass/power_supply/" to check
+        //"bat": "BAT1",
+        //"adapter": "",
+        "states": {
+            // By defualt the good is not enable, if you battery used too long time is may like 70% battery power
+            //"good": 60,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}{capacity}%",
+        "format-full": "FULL {capacity}%",
+        "format-charging": "CHR {capacity}%",
+        "format-plugged": "PLUG {capacity}%",
+        "format-alt": "<b>ETA:</b>{time}",
+        "format-time": "{H}:{M}",
+        "format-icons": ["", "", "", "", ""]
+    },
+        "battery#bat2":{
+        "interval": 60,
+        // For 'bat'&'adapter' you can use "ls /sys/claass/power_supply/" to check
+        "bat": "BAT2",
+        //"adapter": "",
+        "states": {
+            // By defualt the good is not enable, if you battery used too long time is may like 70% battery power
+            //"good": 60,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}{capacity}%",
+        "format-full": "FULL {capacity}%",
+        "format-charging": "CHR {capacity}%",
+        "format-plugged": "PLUG {capacity}%",
+        "format-alt": "<b>ETA:</b>{time}",
+        "format-time": "{H}:{M}",
+        "format-icons": ["", "", "", "", ""]
+    }
+}

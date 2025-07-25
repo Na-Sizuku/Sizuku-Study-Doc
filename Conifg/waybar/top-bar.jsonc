@@ -1,0 +1,83 @@
+//===============================
+// This is Waybar Config 
+// Made By Na-Sizuku
+// This Config is use in Top Bar
+//===============================
+{
+    // Rander layer, is should be top
+    "layer": "top",
+    // Waybar postion
+    "position": "top",
+    // Warybar display mode
+    "mode": "dock",
+    // Waybar height remove will be auto
+    "height": "30",
+    // Waybar width remove will be auto
+    //"width": "1920",
+    // Gaps between modules
+    "spacing": 10,
+    // Auto load modules
+    "ipc": false,
+    "include": [
+        "~/.config/waybar/modules/*jsonc",
+        "~/.config/waybar/modules/System/*jsonc*",
+        "~/.config/waybar/modules/Units/*jsonc"
+    ],
+    // Modules Load as GROUP don't edit, please edit Groups
+    // By default modules load is start left->right
+    "modules-left": [
+        "group/left"
+    ],
+    "modules-center": [
+        "group/center"
+    ],
+    "modules-right": [
+        "group/right"
+    ],
+    // Groups modules load
+    // Groups Left
+    "group/left": {
+        "orientation": "inherit",
+        "modules": [
+            // Custome icon image is in Style.css not in Modules floder
+            // Module are in Modules floder
+            "custom/blank",
+            "custom/icon",
+            // Hyprland modules in Modules floder call 'hyprland.jsonc'
+            //"hyprland/submap",
+            //"hyprland/workspaces",
+            "hyprland/window"
+        ]
+    },
+    // Groups Center
+    "group/center": {
+        "orientation": "inherit",
+        "modules": [
+            // Clock is in Modules/Units fldoer
+            "clock"
+            //"clock#UTC"
+        ]
+    },
+    // Groups Right
+    "group/right": {
+        "orientation": "inherit",
+        "modules":[
+            "keyboard-state",
+            // System info is in Modules/System floder
+            //"bluetooth",
+            //"disk#root",
+            //"disk#home",
+            //"disk#mnt",
+            //"battery#bat1",
+            //"battery#bat2",
+            "network#speed",
+            //"network#wifi",
+            "network#cable",
+            "cpu#usage",
+            //"cpu#uload",
+            "memory#usage",
+            //"tray",
+            "custom/blank"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "custom/icon": {
+        "format": "  ",
+        "tooltip": false
+    },
+    "custom/blank": {
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/spacing": {
+        "format": "|",
+        "tooltip": false
+    }
+}

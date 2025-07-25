@@ -1,0 +1,26 @@
+{
+    "network#speed": {
+        "interval": 1,
+        "format": "↓{bandwidthDownBytes}|↑{bandwidthUpBytes}",
+        "min-length": 15,
+        "tooltip": false
+    },
+    "network#wifi": {
+        "interface": "wlp3s0", //Please change interface name to your wifi interface
+        "interval": 10,
+        "format-wifi": "<span color='#50C8E6'>({signalStrength}at{essid}) {ipaddr}</span>",
+        "format-linked": "<span color='#FF9977'>{ifname}⚠(No IP)</span>",
+        "format-disconnected": "<span color='#FF0000'>Down</span>",
+        "tooltip": true,
+        "tooltip-format": "<b>IP:</b> {ipaddr}/{cidr}\n<b>NetMask:</b> {netmask}\n<b>GetWay:</b> {gwaddr}"
+    },
+    "network#cable": {
+        "interface": "ens33", //Please change interface name to your cable interface
+        "interval": 10,
+        "format-ethernet": "<span color='#50C8E6'>{ipaddr}</span>",
+        "format-linked": "<span color='#FF9977'><i>{ifname}⚠(No IP)</i></span>",
+        "format-disconnected": "<span color='#FF0000'><b>Down</n></span>",
+        "tooltip": true,
+        "tooltip-format": "<b>IP:</b> {ipaddr}/{cidr}\n<b>NetMask:</b> {netmask}\n<b>GetWay:</b> {gwaddr}"
+    }
+}

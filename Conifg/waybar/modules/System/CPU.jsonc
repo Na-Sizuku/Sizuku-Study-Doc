@@ -1,0 +1,22 @@
+{
+    "cpu#usage": {
+        "interval": 3,
+        "format": "CPU:{usage}%{icon}",
+        "format-icons": [
+            "<span color='#f8f8f2'>▁</span>", // white
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#69ff94'>▃</span>", // green
+            "<span color='#69ff94'>▄</span>", // green
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>"  // red
+        ],
+        "tooltip": true
+    },
+    "cpu#load": {
+        "interval": 3,
+        "format": "{load}",
+        "tooltip":false
+    }
+}

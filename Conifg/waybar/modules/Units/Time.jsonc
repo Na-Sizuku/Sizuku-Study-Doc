@@ -1,0 +1,35 @@
+{
+    "clock": {
+        "interval": 1,
+        //"timezone": "Asia/Shanghai",
+        "format": " {:%Y/%m/%d-%A <b>%H:%M:%S</b>} ",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "week-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "month":    "<span color='#FFEAD3'><b>{}</b></span>",
+                "days":     "<span color='#CCCCCC'><b>{}</b></span>",
+                "weeks":    "<span color='#99FFDD'><b>W{}</b></span>",
+                "weekdays": "<span color='#46AA82'><b>{}</b></span>",
+                "today":    "<span color='#50C8E5'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
+        }
+    },
+    "clock#UTC": {
+        "interval": 1,
+        "timezone": "Etc/UTC",
+        "format": " UTC:{:%H:%M:%S}",
+        "tooltip": false
+    }
+}
