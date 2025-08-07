@@ -4,7 +4,7 @@
         "tooltip": false
     },
     "hyprland/workspaces": {
-        "format": " {icon} ",
+        "format": "{icon}",
         "rotate": 0,
         "format-icons":{
             "1": "I",
@@ -18,9 +18,21 @@
             "9": "IX",
             "10": "X"
         }
+        //"format-icons": {
+        //    "1": "一",
+        //    "2": "二",
+        //    "3": "三",
+        //    "4": "四",
+        //    "5": "五",
+        //    "6": "六",
+        //    "7": "七",
+        //    "8": "八",
+        //    "9": "九",
+        //    "10": "十"
+        //}
     },
     "hyprland/window": {
-        "format": " {title} ",
+        "format": "{title}",
         "separate-outputs": true,
         "tooltip": false
     }

@@ -5,72 +5,82 @@
 
 /* Waybar Set */
 @define-color waybar-text           #FFF;
-@define-color waybar-bg             rgba(0,0,0,0.65);
+@define-color waybar-bg             RGBA(0,0,0,0.65);
 
 /* Waybar Module Set */
 /* Battery Moduel Set */
-@define-color waybar-battery-text           rgba(255,255,255,0.8);
-@define-color waybar-battery-text-warning   rgba(255,180,0,0.9);
-@define-color waybar-battery-text-critical  rgba(255,50,50,0.8);
-@define-color waybar-battery-text-full      rgba(0,255,50,0.8);
-@define-color waybar-battery-text-charging  rgba(255,255,255,0.8);
-@define-color waybar-battery-text-plugged   rgba(255,255,255,0.8);
-@define-color waybar-battery-bg             rgba(100,100,100,0.2);
+@define-color waybar-battery-text           RGBA(255,255,255,0.8);
+@define-color waybar-battery-text-warning   RGBA(255,180,0,0.9);
+@define-color waybar-battery-text-critical  RGBA(255,50,50,0.8);
+@define-color waybar-battery-text-full      RGBA(0,255,50,0.8);
+@define-color waybar-battery-text-charging  RGBA(255,255,255,0.8);
+@define-color waybar-battery-text-plugged   RGBA(255,255,255,0.8);
+@define-color waybar-battery-bg             RGBA(100,100,100,0.2);
 
 /* Bluetooth Moduel Set */
-@define-color waybay-bluetooth-text     rgba(0,190,255,0.8);
-@define-color waybay-bluetooth-bg       rgba(0,0,0,0.4);
+@define-color waybay-bluetooth-text     RGBA(0,190,255,0.8);
+@define-color waybay-bluetooth-bg       RGBA(0,0,0,0.4);
 
 /* Clock Module Set */
-@define-color waybar-clock-text     rgba(255,255,255,1);
-@define-color waybar-clock-bg       rgba(0,0,0,0.1);
-@define-color waybar-clock-edge     rgba(200,200,200,0.3);
+@define-color waybar-clock-text     RGBA(255,255,255,1);
+@define-color waybar-clock-bg       RGBA(0,0,0,0.1);
+@define-color waybar-clock-edge     RGBA(200,200,200,0.3);
 
 /* CPU Module Set */
-@define-color waybar-CPU-text       #FFF;
-@define-color waybar-CPU-bg         #000;
+@define-color waybar-CPU-text       RGBA(255,255,255,0.9);
+@define-color waybar-CPU-bg         RGBA(0,0,0,0.2);
+@define-color waybar-CPU-edge       RGBA(200,200,200,0.3);
 
 /* Disk Module Set */
-@define-color waybar-disk-text      #FFF;
-@define-color waybar-disk-bg        #000;
-
-/* Keyboard Module Set */
-@define-color waybar-keyboard-text  #FFF;
-@define-color waybar-keyboard-bg    #000;
+@define-color waybar-disk-text      RGBA(255,255,255,0.8);
+@define-color waybar-disk-bg        RGBA(0,0,0,0.2);
+@define-color waybar-disk-edge      RGBA(200,200,200,0.3);
 
 /* Memory Module Set */
-@define-color waybar-memory-text    #FFF;
-@define-color waybar-memory-bg      #000;
+@define-color waybar-memory-text    RGBA(255,255,255,0.8);
+@define-color waybar-memory-bg      RGBA(0,0,0,0.2);
+@define-color waybar-memory-edge    RGBA(200,200,200,0.3);
 
 /* Network Module Set */
 @define-color waybar-network-text   #FFF;
 @define-color waybar-network-bg     #000;
 
+/* Keyboard Module Set */
+@define-color waybar-keyboard-text          RGBA(255,255,255,0.5);
+@define-color waybar-keyboard-text-locked   RGBA(255,255,255,1);
+@define-color waybar-keyboard-bg            RGBA(0,0,0,0.4);
+@define-color waybar-keyboard-bg-locked     RGBA(255,255,255,0.2);
+@define-color waybar-keyboard-edge          RGBA(200,200,200,0.3);
+
 /* Tray Module Set */
-@define-color waybar-tray-text      #FFF;
-@define-color waybar-tray-bg        #000;
+@define-color waybar-tray-text      RGBA(255,255,255,0.8);
+@define-color waybar-tray-bg        RGBA(0,0,0,0.2);
+@define-color waybar-tray-notice    RGBA(200,80,80,0.5);
+@define-color waybar-tray-edge      RGBA(200,200,200,0.3);
 
 /* Hyprland Module Set */
 /* Submap Set */
 @define-color hyprland-submap-text  #000;
-@define-color hyprland-submap-bg    rgba(95,180,255,0.5);
+@define-color hyprland-submap-bg    RGBA(95,180,255,0.5);
 @define-color hyprland-submap-edge  #FFF;
 
 /* Window Set */
-@define-color hyprland-window-text  rgba(255,255,255,0.8);
-@define-color hyprland-window-bg    rgba(120,120,120,0.4);
-@define-color hyprland-window-edge  rgba(200,200,200,0.5);
+@define-color hyprland-window-text  RGBA(255,255,255,0.8);
+@define-color hyprland-window-bg    RGBA(120,120,120,0.4);
+@define-color hyprland-window-edge  RGBA(200,200,200,0.5);
 
 /* Workspaces Set */
 @define-color hyprland-ws-text          #FFF;
+@define-color hyprland-ws-text-hover    RGBA(255,255,255,0.7);
 @define-color hyprland-ws-text-active   #000;
 @define-color hyprland-ws-text-urgent   #FFF;
-@define-color hyprland-ws-bg            #000;
-@define-color hyprland-ws-bg-active     rgba(95,180,255,0.5);
-@define-color hyprland-ws-bg-urgent     rgba(230,50,50,0.7);
+@define-color hyprland-ws-bg            RGBA(120,120,120,0.3);
+@define-color hyprland-ws-bg-hover      RGBA(0,0,0,0.3);
+@define-color hyprland-ws-bg-active     RGBA(95,180,255,0.5);
+@define-color hyprland-ws-bg-urgent     RGBA(230,50,50,0.7);
 @define-color hyprland-ws-edge          #000;
 @define-color hyprland-ws-edge-active   #FFF;
-@define-color hyprland-ws-edge-urgent   rgba(200,120,0,0.65);
+@define-color hyprland-ws-edge-urgent   RGBA(95,180,255,0.5);
 
 /* Custom Module Set */
 @define-color custom-icon           #FFF;

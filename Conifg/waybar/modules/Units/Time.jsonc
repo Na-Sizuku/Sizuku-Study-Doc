@@ -2,7 +2,7 @@
     "clock": {
         "interval": 1,
         //"timezone": "Asia/Shanghai",
-        "format": " {:%Y/%m/%d-%A <b>%H:%M:%S</b>} ",
+        "format": "{:%Y/%m/%d-%A <b>%H:%M:%S</b>}",
         "tooltip-format": "<tt>{calendar}</tt>",
         "calendar": {
             "mode": "month",

@@ -28,11 +28,17 @@
     background-color: @waybar-bg;
     color: #ffffff;
     transition-property: waybar-bg;
-    transition-duration: .7s;
+    transition-duration: .5s;
 }
 
 #waybar.hidden {
-    opacity: 0.2;
+    opacity: 0.3;
+}
+
+/* button effect set */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
 }
 
 /* Waybar Module Set */
@@ -82,21 +88,88 @@
     border-color: @waybar-clock-edge;
     background-color: @waybar-clock-bg;
     color: @waybar-clock-text;
+    padding: 0px 10px;
 }
 /* Waybar CPU Module Set */
-#cpu#usage {
+#cpu {
     border: 1px;
-    border-style: inset;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-CPU-edge;
+    background-color: @waybar-CPU-bg;
+    color: @waybar-CPU-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
 }
+
 /* Waybar Disk Module Set */
+#disk {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-disk-edge;
+    background-color: @waybar-disk-bg;
+    color: @waybar-disk-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+}
 
 /* Waybar Memory Module Set */
+#memory {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-memory-edge;
+    background-color: @waybar-memory-bg;
+    color: @waybar-memory-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+}
 
 /* Waybar Network Module Set */
 
 /* Waybar Keyboard Module Set */
+#keyboard-state {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-keyboard-edge;
+    background-color: @waybar-keyboard-bg;
+    color: @waybar-keyboard-text;
+    margin: 0px 0px 0px 5px;
+}
+
+#keyboard-state label {
+    padding: 0 5px;
+}
+
+#keyboard-state label.locked {
+    border-radius: 5px;
+    background: @waybar-keyboard-bg-locked;
+    color: @waybar-keyboard-text-locked;
+    font-weight: bolder;
+}
 
 /* Waybar Tray Module Set */
+#tray {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-tray-edge;
+    background-color: @waybar-tray-bg;
+    color: @waybar-tray-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+}
+
+#tray .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @waybar-tray-notice;
+}
 
 /* Hyprland Set */
 /* Hyprland Submap Set */
@@ -107,6 +180,7 @@
     border-color: @hyprland-submap-edge;
     background-color: @hyprland-submap-bg;
     color: @hyprland-submap-text;
+    padding: 0px 5px;
 }
 
 /* Hyprland Window Set*/
@@ -117,12 +191,12 @@
     border-color: @hyprland-window-edge;
     background-color: @hyprland-window-bg;
     color: @hyprland-window-text;
+    padding: 0px 10px;
 }
 
 /* Hyprland Workspace Set */
 #workspaces {
-    border-radius: 5px;
-    background-color: @hyprland-window-bg;
+    border: none;
 }
 
 #workspaces button {
@@ -130,7 +204,15 @@
     border-style: solid;
     border-radius: 5px;
     border-color: @hyprland-ws-edge;
+    background-color: @hyprland-ws-bg;
     color: @hyprland-ws-text;
+    margin: 0px 2px;
+    padding: 0px 10px;
+}
+
+#workspaces button:hover {
+    background: @hyprland-ws-bg-hover;
+    color: @hyprland-ws-text-hover;
 }
 
 #workspaces button.active {
@@ -155,6 +237,7 @@
 /* Custom Icon Set */
 #custom-icon {
     font-size: 23px;
+    border-radius: 5px;
     background-image: url("/home/mlc/.config/waybar/icon/icon.png");
     background-position: center;
     background-repeat: no-repeat;

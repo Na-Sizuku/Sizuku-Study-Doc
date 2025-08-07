@@ -2,7 +2,7 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "<b>{name}</b>{icon}",
+        "format": "{name}{icon}",
         //"format": {
         //    "numlock": "Num {icon}",
         //    "capslock": "Caps {icon}"
