@@ -325,6 +325,11 @@ Hyprland 是在 Wayland 下的一款平铺式桌面，由于 Hyprland 受到 i3 
 [Arch Linux wiki 官方 Hyprland 说明](https://wiki.archlinux.org/title/Hyprland)  
 需要注意由于中文翻译都是具有时间上的差异，如果可以请一定要查阅英文的资料，这将有助于你即使获得最新信息。
 
+如果你不想去查阅官方资料你可以直接看下面的资料  
+该资料为我个人使用中体验以及各种踩坑的解决，或许对于你来说有许多帮助  
+[Hyprland 配置](../ArchLinux/DeskTop/Hyprland%20Config.md)  
+[i3 配置](../ArchLinux/DeskTop/i3%20Config.md)
+
 ## 关于手动启动桌面环境
 
 **一般情况下是极其不推荐通过命令行启动你的桌面环境，除非你是真的闲的慌！**
