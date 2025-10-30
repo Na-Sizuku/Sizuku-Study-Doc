@@ -4,3 +4,4 @@
 
 - 将这里面的`i3status.conf`放到`/etc`目录下
 - 将`config`、`i3bar.conf`、`net-speed.sh`、`wallpaper`放置到用户目录下的`.config/i3`下面
+- 赋予`net-speed.sh`和位于`wallpaper`中的`wallpaper.sh`运行权限
