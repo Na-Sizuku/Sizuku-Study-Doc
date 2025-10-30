@@ -20,6 +20,9 @@
     - [ ] Arch Linux 办公软件
     - [ ] Arch Linux 开发软件
     - [ ] Arch Linux 优化小技巧和使用体验优化
+  - [x] Arch Linux 用户配置文件
+    - [x] Hyprland 桌面环境配置文件
+    - [x] i3 桌面环境配置文件
 
 #### NextCloud
 
@@ -82,4 +85,4 @@
 
 ## 最后更新日期
 
-2025-7-15 15:36
+2025-10-30 22:23 UTC Time
