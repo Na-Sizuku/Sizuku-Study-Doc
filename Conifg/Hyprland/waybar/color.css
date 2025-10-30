@@ -42,8 +42,9 @@
 @define-color waybar-memory-edge    RGBA(200,200,200,0.3);
 
 /* Network Module Set */
-@define-color waybar-network-text   #FFF;
-@define-color waybar-network-bg     #000;
+@define-color waybar-network-text    RGBA(255,255,255,0.8);
+@define-color waybar-network-bg      RGBA(0,0,0,0.2);
+@define-color waybar-network-edge    RGBA(200,200,200,0.3);
 
 /* Keyboard Module Set */
 @define-color waybar-keyboard-text          RGBA(255,255,255,0.5);
