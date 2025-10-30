@@ -28,3 +28,21 @@ Arch Linux CN 源是由国内用户创建和维护的社区源，该源提供了
 |    rdesktop     |                                       RDP 协议自持包，如果你需要远程连接到 Windows 设备那么 rdesktop 是必不可少的工具                                       |
 |     clamav      |                  开源杀毒软件，在尽可能不占用过多系统资源情况下提供系统保护，需要用户手动[_配置_](https://wiki.archlinux.org/title/ClamAV)                  |
 |     ranger      |                      一个基于命令行(CLI)的文件管理器，部分可选支持依赖请[_参考这里_](https://archlinux.org/packages/extra/any/ranger/)                      |
+
+## Wayland 下使用 Electron 程序
+
+由于 Wayland 是新的桌面中间层，许多软件或底层虽支持 Wayland 但可能出于兼容性考虑不会直接使用 Wayland 渲染方式，如 Electron。  
+对于该情况你需要在本地用户配置文件中写入一些配置来启用对 Wayland 的支持。
+
+为此只需要在`~/.config/electron-flages.conf`下写入下面的设置便可让基于 Electron 的程序运行在 Wayland 下。
+
+```conf
+--enable-features=WaylandWindowsDecorations
+--ozone-platform-hint=auto
+```
+
+## CLI 环境下的编辑器
+
+如 VIM 等编辑器实际上是支持插件扩展，通常情况下你仅需要一个包即可使得相对传统的编辑器拥有先进功能，如看行号、文件编码、文件类型等等。  
+VIM 仅需要装`vim-airline`，便可实现如查看文件编码、git 项目关联、文件类型、编辑状态查看。  
+当然你也可以查阅相关资料去了解你使用的 CLI 编辑器的插件。
