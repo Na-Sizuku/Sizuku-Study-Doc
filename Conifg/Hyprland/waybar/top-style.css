@@ -24,7 +24,7 @@
 
 /* Waybar Set */
 #waybar {
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 0px 0px 10px 10px;
     background-color: @waybar-bg;
     color: #ffffff;
     transition-property: waybar-bg;
@@ -127,6 +127,27 @@ button:hover {
 }
 
 /* Waybar Network Module Set */
+#network {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-network-edge;
+    background-color: @waybar-network-bg;
+    color: @waybar-network-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+}
+
+#network.speed {
+    border: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: @waybar-network-edge;
+    background-color: @waybar-network-bg;
+    color: @waybar-network-text;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+}
 
 /* Waybar Keyboard Module Set */
 #keyboard-state {

@@ -19,9 +19,20 @@
     // Auto load modules
     "ipc": false,
     "include": [
-        "~/.config/waybar/modules/*jsonc",
-        "~/.config/waybar/modules/System/*jsonc*",
-        "~/.config/waybar/modules/Units/*jsonc"
+        //"~/.config/waybar/modules/*jsonc",
+        //"~/.config/waybar/modules/System/*jsonc*",
+        //"~/.config/waybar/modules/Units/*jsonc",
+        "~/.config/waybar/modules/System/Battery.jsonc",
+        "~/.config/waybar/modules/System/Bluetooth.jsonc",
+        "~/.config/waybar/modules/System/CPU.jsonc",
+        "~/.config/waybar/modules/System/Disk.jsonc",
+        "~/.config/waybar/modules/System/Memory.jsonc",
+        "~/.config/waybar/modules/System/Network.jsonc",
+        "~/.config/waybar/modules/Units/Keybord.jsonc",
+        "~/.config/waybar/modules/Units/Time.jsonc",
+        "~/.config/waybar/modules/Units/Tray.jsonc",
+        "~/.config/waybar/modules/Custom.jsonc",
+        "~/.config/waybar/modules/Hyprland.jsonc"
     ],
     // Modules Load as GROUP don't edit, please edit Groups
     // By default modules load is start left->right
