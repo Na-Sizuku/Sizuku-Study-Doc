@@ -153,7 +153,7 @@ mkfs.ext4 将分区格式化为 Linux 系统常用文件系统，ext 文件系�
 
     root@archiso ~ # swapon /dev/sda2
 
-    root@archiso ~ # mkswap /dev/sda3
+    root@archiso ~ # mkfs.ext4 /dev/sda3
     Creating filesystem with 4116992 4k blocks and 1030176 inodes
     Filesystem UUID:583a2157-11ec-4460-952a-ff4c798a80cZ
     Superblock backups stored on blocks:
