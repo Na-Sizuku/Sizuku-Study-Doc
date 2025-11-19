@@ -224,7 +224,7 @@ Arch Linux 使用 pacman 作为包管理器，对应配置文件在"/etc/pacman.
 Arch Linux 使用"pacstrap"命令安装全新的操作系统，一个完整的安装命令由下面进行展示。
 
 ```bash
-    pacstrap -K /mnt base linux linux-firemware
+    pacstrap -K /mnt base linux linux-firmware
     pacstrap <参数> <安装挂载点> <软件包>
 ```
 
